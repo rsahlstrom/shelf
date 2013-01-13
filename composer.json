@@ -1,0 +1,21 @@
+{
+    "name": "janiv/shelf",
+    "description": "BoardGameGeek API 2.0 Wrapper for PHP",
+    "keywords": ["Board Game", "BoardGameGeek", "BGG"],
+    "homepage": "http://github.com/janiv/shelf",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Russell S. Ahlstrom",
+            "email": "russell.ahlstrom@gmail.com",
+            "homepage": "http://russell.ahlstromology.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Shelf": "lib/" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "kriswallsmith/buzz": "0.7.*"
+    }
+}
