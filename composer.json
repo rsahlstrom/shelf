@@ -16,6 +16,6 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "kriswallsmith/buzz": "0.7.*"
+        "guzzle/guzzle": "~3.3"
     }
 }

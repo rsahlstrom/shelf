@@ -2,7 +2,14 @@
 
 require('../vendor/autoload.php');
 
-$fetcher = new \Shelf\Fetcher();
-$game = $fetcher->getGame(13);
+$builder = \Shelf\Builder::factory();
+$api2 = $builder->get('v2');
+$results = $api2->getBoardgame(
+    array(
+        'id' => array(34119, 12),
+    )
+);
 
-echo $game;
+foreach ($results->getBoardgames() as $game) {
+    echo $game->getBggId() . ': ' . $game->getName() . '<br />';
+}

@@ -1,0 +1,10 @@
+{
+    "services": {
+        "v1": {
+            "class": "Shelf\\V1\\Client"
+        },
+        "v2": {
+            "class": "Shelf\\V2\\Client"
+        }
+    }
+}
