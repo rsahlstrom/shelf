@@ -22,9 +22,13 @@ abstract class Thing implements ResponseClassInterface
 
     abstract public function process();
 
+    public function processString($string)
+    {
+        return trim(html_entity_decode($string));
+    }
+
     public static function fromCommand(OperationCommand $command)
     {
-        echo $command->getRequest();exit;
         return new static($command->getResponse()->xml());
     }
 }
