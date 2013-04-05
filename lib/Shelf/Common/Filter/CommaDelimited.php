@@ -1,6 +1,6 @@
 <?php
 
-namespace Shelf\Filter;
+namespace Shelf\Common\Filter;
 
 class CommaDelimited
 {
