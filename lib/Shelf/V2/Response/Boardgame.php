@@ -5,10 +5,24 @@ namespace Shelf\V2\Response;
 use Shelf\V2\Model\Boardgame as BoardgameModel;
 use Shelf\V2\Model\Boardgame\Name as BoardgameName;
 
+/**
+ * Boardgame class to handle responses from the api endpoint with a type of
+ * boardgame or boardgameexpansion
+ */
 class Boardgame extends Thing
 {
+    /**
+     * Array of the processed boardgame models
+     *
+     * @var array
+     */
     protected $boardgames = array();
 
+    /**
+     * Manually process the raw data from the api endpoint into models
+     *
+     * @return void 0
+     */
     public function process()
     {
         if ($this->isProcessed()) {
@@ -23,6 +37,13 @@ class Boardgame extends Thing
         $this->processed = true;
     }
 
+    /**
+     * Process a single game from the xml response
+     *
+     * @param \SimpleXMLElement $rawGame
+     *
+     * @return Boardgame
+     */
     public function processBoardgame(\SimpleXMLElement $rawGame)
     {
         $data = array();
@@ -71,6 +92,11 @@ class Boardgame extends Thing
         return new BoardgameModel($data);
     }
 
+    /**
+     * Returns the boardgame objects from the processed response
+     *
+     * @return array
+     */
     public function getBoardgames()
     {
         if (!$this->isProcessed()) {
