@@ -1,10 +1,12 @@
 <?php
 
-namespace Shelf\V2\Model;
+namespace Shelf\Common\Model;
 
 /**
  * Abstract class that has basic getters and setters for access data from a
  * protected array
+ *
+ * If this library ever goes php 5.4+, then we can convert this to a trait
  */
 abstract class DataAbstract
 {

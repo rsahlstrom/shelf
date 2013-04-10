@@ -1,8 +1,8 @@
 <?php
 
-namespace Shelf\V2\Model\Boardgame;
+namespace Shelf\Common\Model\Boardgame;
 
-use Shelf\V2\Model\DataAbstract;
+use Shelf\Common\Model\DataAbstract;
 
 /**
  * Class used to represent the name of a board game and the various properties

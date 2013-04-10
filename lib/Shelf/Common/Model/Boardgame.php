@@ -1,8 +1,8 @@
 <?php
 
-namespace Shelf\V2\Model;
+namespace Shelf\Common\Model;
 
-use Shelf\V2\Model\Boardgame\Name;
+use Shelf\Common\Model\Boardgame\Name;
 
 /**
  * Representation of a board game from Board Game Geek with methods to access
