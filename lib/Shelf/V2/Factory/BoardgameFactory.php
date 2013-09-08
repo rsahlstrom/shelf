@@ -2,21 +2,21 @@
 
 namespace Shelf\V2\Factory;
 
-use Shelf\Common\Model\Boardgame as BoardgameModel;
-use Shelf\Common\Model\Boardgame\Name as BoardgameName;
+use Shelf\Common\Entity\Boardgame as Boardgame;
+use Shelf\Common\Entity\Boardgame\Name as BoardgameName;
 
 /**
- * Factory to convert raw data into Boardgame Models
+ * Factory to convert raw data into Boardgame Entities
  */
-class Boardgame implements FactoryInterface
+class BoardgameFactory implements FactoryInterface
 {
     /**
      * Transforms a raw xml response from the BGG API to an array of Boardgame
-     * Models
+     * Entitys
      *
      * @param \SimpleXMLElement $rawXml
      *
-     * @return Shelf\Common\Model\Boardgame[]
+     * @return Boardgame[]
      */
     public function fromBggXml(\SimpleXMLElement $rawXml)
     {
@@ -79,7 +79,7 @@ class Boardgame implements FactoryInterface
 
         //@TODO: Add support for polls
 
-        return new BoardgameModel($data);
+        return new Boardgame($data);
     }
 
     /**

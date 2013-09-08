@@ -6,7 +6,7 @@
     "operations": {
         "thing": {
             "httpMethod": "GET",
-            "uri": "thing{?id,type,versions,videos,stats,historical,marketplace,comments,ratingcomments,page,pagesize}",
+            "uri": "thing",
             "summary": "Returns information about a specific thing along with optional additional data",
             "responseClass": "Shelf\\V2\\Response\\Thing",
             "parameters": {
@@ -24,10 +24,22 @@
                     "location": "uri",
                     "description": "Type of thing to filter by",
                     "type": ["string", "array"],
-                    "enum": ["boardgame", "boardgameexpansion", "videogame", "rpgitem", "rpgissue"],
+                    "enum": [
+                        "boardgame",
+                        "boardgameexpansion",
+                        "videogame",
+                        "rpgitem",
+                        "rpgissue"
+                    ],
                     "items": {
                         "type": "string",
-                        "enum": ["boardgame", "boardgameexpansion", "videogame", "rpgitem", "rpgissue"]
+                        "enum": [
+                            "boardgame",
+                            "boardgameexpansion",
+                            "videogame",
+                            "rpgitem",
+                            "rpgissue"
+                        ]
                     },
                     "filters": "Shelf\\Common\\Filter\\CommaDelimited::implode"
                 },
