@@ -4,6 +4,9 @@
     <testsuite name="entity">
       <directory suffix="Test.php">tests/Shelf/Test/Entity</directory>
     </testsuite>
+    <testsuite name="filter">
+      <directory suffix="Test.php">tests/Shelf/Test/Filter</directory>
+    </testsuite>
     <testsuite name="utility">
       <directory suffix="Test.php">tests/Shelf/Test/Utility</directory>
     </testsuite>

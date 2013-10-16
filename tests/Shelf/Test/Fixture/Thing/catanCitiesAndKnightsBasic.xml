@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgameexpansion" id="926">
+         <thumbnail>http://cf.geekdo-images.com/images/pic268845_t.jpg</thumbnail>
+      <image>http://cf.geekdo-images.com/images/pic268845.jpg</image>
+
+                <name type="primary" sortindex="1" value="Catan: Cities &amp; Knights" />
+
+
+                <name type="alternate" sortindex="1" value="Catan telepesei - Lovagok és Városok" />
+
+                <name type="alternate" sortindex="1" value="Catan: Borgir og riddarar" />
+
+                <name type="alternate" sortindex="1" value="Catan: Ciudades y Caballeros" />
+
+                <name type="alternate" sortindex="1" value="Catan: Kaupungit ja Ritarit" />
+
+                <name type="alternate" sortindex="1" value="Catan: Lovagok és városok" />
+
+                <name type="alternate" sortindex="5" value="The Cities and Knights of Catan" />
+
+                <name type="alternate" sortindex="3" value="I Coloni di Catani: Città e Cavalieri" />
+
+                <name type="alternate" sortindex="1" value="Colonistii din Catan: Orase si Cavaleri" />
+
+                <name type="alternate" sortindex="5" value="Los Colonos de Catán: Ciudades y Caballeros" />
+
+                <name type="alternate" sortindex="5" value="Les Colons de Catane: Villes et Chevaliers" />
+
+                <name type="alternate" sortindex="1" value="Katanas ieceļotāji: Pilsētas un bruņiniek" />
+
+                <name type="alternate" sortindex="1" value="Katani asustajad: Linnad ja rüütlid" />
+
+                <name type="alternate" sortindex="1" value="Katano salos naujakuriai: Miestai ir riteriai" />
+
+                <name type="alternate" sortindex="4" value="De Kolonisten van Catan: Steden &amp; Ridders" />
+
+                <name type="alternate" sortindex="1" value="Miasta i Rycerze z Catanu" />
+
+                <name type="alternate" sortindex="1" value="Naseljenci otoka Catan: Mesta in vitezi" />
+
+                <name type="alternate" sortindex="1" value="Osadníci z Katanu - rozšíření Města a rytíři" />
+
+                <name type="alternate" sortindex="1" value="Osadnicy z Catanu: Miasta i Rycerze" />
+
+                <name type="alternate" sortindex="5" value="The Settlers fra Catan: Byer og Riddere" />
+
+                <name type="alternate" sortindex="1" value="Settlers of Catan: Cities &amp; Knights" />
+
+                <name type="alternate" sortindex="5" value="The Settlers of Catan: Cities &amp; Knights" />
+
+                <name type="alternate" sortindex="5" value="The Settlers of Catan: Cities and Knights" />
+
+                <name type="alternate" sortindex="5" value="Die Siedler von Catan: Städte &amp; Ritter" />
+
+                <name type="alternate" sortindex="1" value="Οι Άποικοι του Κατάν: Πόλεις και Ιππότες" />
+
+                <name type="alternate" sortindex="1" value="Οι πόλεις του Κατάν" />
+
+                <name type="alternate" sortindex="1" value="Колонизаторы: Города и Рыцари" />
+
+                <name type="alternate" sortindex="1" value="המתיישבים של קטאן: ערים ואבירים" />
+
+                                                                                        <description>Adds several new aspects to Settlers of Catan but the two major ones are creating knights to protect the land from invading barbarians and building city improvements that confer benefits upon that city's owner. Adds tactical complexity to the game and game length.&amp;#10;&amp;#10;Belongs to the Catan Series.&amp;#10;&amp;#10;The game changes the base game in three main ways:&amp;#10;&amp;#10;First, there are 3 new commodities in the game, distinct from resources - paper, cloth, and coins, which can be acquired from Forest, Meadow, and Mountain spaces, respectively. Cities that would normally produce two of one of those resources instead produce 1 resource and 1 of the corresponding commodity. (To make commodities easier to obtain, each player starts the game with 1 city and 1 settlement on the board.) These commodities allow players to build city improvements that confer various advantages and eventually points.&amp;#10;&amp;#10;Second, the deck of development cards is replaced by three different decks, each corresponding to one of the commodities. Building city improvements gives players a chance to draw these cards with every roll of the dice. Building more improvements will increase these chances, but cards cannot be bought directly in any way. These cards are similar to the development cards in the base game, but with a wider range of effects. (Some cards are balanced better as well - the new Resource Monopoly card, for example, can take no more than 2 of the named resource from any one player.)&amp;#10;&amp;#10;Finally, players can also build knights on the island along their network of roads. These knights can be used to claim certain intersections and move the Robber (taking the place of Soldier cards), but are also used to defend the island from periodic barbarian attacks. If the island is successfully defended, the player(s) with the most knights are rewarded. If not, the player(s) with the fewest knights each have a city downgraded to a settlement.&amp;#10;&amp;#10;</description>
+                                                                            <yearpublished value="1998" />
+                                                    <minplayers value="3" />
+                                                    <maxplayers value="4" />
+                                        <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="92">
+
+        <results numplayers="1">
+                    <result value="Best" numvotes="0" />
+                    <result value="Recommended" numvotes="0" />
+                    <result value="Not Recommended" numvotes="62" />
+                </results>
+
+        <results numplayers="2">
+                    <result value="Best" numvotes="3" />
+                    <result value="Recommended" numvotes="6" />
+                    <result value="Not Recommended" numvotes="59" />
+                </results>
+
+        <results numplayers="3">
+                    <result value="Best" numvotes="40" />
+                    <result value="Recommended" numvotes="40" />
+                    <result value="Not Recommended" numvotes="5" />
+                </results>
+
+        <results numplayers="4">
+                    <result value="Best" numvotes="60" />
+                    <result value="Recommended" numvotes="23" />
+                    <result value="Not Recommended" numvotes="4" />
+                </results>
+
+        <results numplayers="4+">
+                    <result value="Best" numvotes="6" />
+                    <result value="Recommended" numvotes="6" />
+                    <result value="Not Recommended" numvotes="47" />
+                </results>
+    </poll>
+                                        <playingtime value="90" />
+                                                    <minage value="12" />
+                                        <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="28">
+            <results>
+                    <result value="2" numvotes="0" />
+                    <result value="3" numvotes="0" />
+                    <result value="4" numvotes="0" />
+                    <result value="5" numvotes="0" />
+                    <result value="6" numvotes="0" />
+                    <result value="8" numvotes="0" />
+                    <result value="10" numvotes="6" />
+                    <result value="12" numvotes="16" />
+                    <result value="14" numvotes="5" />
+                    <result value="16" numvotes="1" />
+                    <result value="18" numvotes="0" />
+                    <result value="21 and up" numvotes="0" />
+                </results>
+    </poll>
+                            <poll name="language_dependence" title="Language Dependence" totalvotes="36">
+
+        <results>
+                    <result level="1" value="No necessary in-game text" numvotes="0" />
+                    <result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="6" />
+                    <result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="28" />
+                    <result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="2" />
+                    <result level="5" value="Unplayable in another language" numvotes="0" />
+                </results>
+    </poll>
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecategory" id="1042" value="Expansion for Base-game" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecategory" id="1035" value="Medieval" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecategory" id="1026" value="Negotiation" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2072" value="Dice Rolling" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2040" value="Hand Management" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2047" value="Memory" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2011" value="Modular Board" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2081" value="Route/Network Building" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2008" value="Trading" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamefamily" id="3" value="Catan" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="4101" value="Catan: Cities &amp; Knights - 5-6 Player Extension" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="42147" value="Der Hafenmeister" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="91061" value="Hexen, Zauberer &amp; Drachen (Fan expansion to Catan: Cities and Knights)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="89606" value="Kirche, Glaube &amp; Reformation (Fan expansion to Catan: Cities and Knights)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="90100" value="Die Siedler von Catan: Die Pioniere (fan expansion for The Settlers of Catan)" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="13" value="The Settlers of Catan" inbound="true"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecompilation" id="17419" value="CATAN 3D Collector's Edition" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamedesigner" id="11" value="Klaus Teuber" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="12036" value="Volkan Baga" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="12382" value="Tanja Donner" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="5442" value="Jason Hawkins" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="4959" value="Harald Lieske" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="11825" value="Michael Menzel" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="11" value="Klaus Teuber" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="11883" value="Franz Vohwinkel" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="12063" value="Stephen Graham Walsh" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="267" value="999 Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="4304" value="Albi" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="7162" value="Brain Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="496" value="dan-spil" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="2366" value="Devir" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5657" value="Filosofia Édition" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="4617" value="Galakta" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5530" value="Giochi Uniti" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="23382" value="HaKubia" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="18852" value="Hobby World" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5020" value="Ísöld ehf." />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="6214" value="Kaissa Chess &amp; Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="37" value="KOSMOS" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5597" value="Laser plus" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="3218" value="Lautapelit.fi" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="10" value="Mayfair Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="22" value="Piatnik" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="8313" value="Smart Ltd" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="42" value="Tilsit" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="13481" value="TRY SOFT" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</item></items>

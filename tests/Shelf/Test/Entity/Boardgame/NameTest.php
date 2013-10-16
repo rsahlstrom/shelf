@@ -4,7 +4,7 @@ namespace Shelf\Test\Entity\Boadgame;
 
 use Shelf\Entity\Boardgame\Name;
 
-class BoardgameTest extends \PHPUnit_Framework_TestCase
+class NameTest extends \PHPUnit_Framework_TestCase
 {
     protected $primaryName;
     protected $secondaryName;
@@ -13,7 +13,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     {
         $this->primaryName = Name::factory(
             array(
-                'name' => 'Primary Name',
+                'value' => 'Primary Name',
                 'type' => 'primary',
                 'sort_index' => 0,
             )
@@ -21,7 +21,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
 
         $this->secondaryName = Name::factory(
             array(
-                'name' => 'Secondary Name',
+                'value' => 'Secondary Name',
                 'type' => 'secondary',
                 'sort_index' => 0,
             )

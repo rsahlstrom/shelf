@@ -5,24 +5,24 @@ namespace Shelf\Factory;
 use Shelf\Entity\Boardgame;
 
 /**
- * Factory to convert raw data into Boardgame Entities
+ * Factory to convert raw data into a Boardgame Entity
  */
 class BoardgameFactory extends AbstractFactory implements FactoryInterface
 {
     /**
      * Transforms a raw xml item from the BGG API to a board game entity
      *
-     * @param \SimpleXMLElement $rawXml
+     * @param \SimpleXMLElement $rawItem
      *
      * @return Boardgame
      */
     public static function fromBggXml(\SimpleXMLElement $rawItem)
     {
-        return self::fromArray(self::convertXmlItem($rawItem));
+        return static::fromArray(static::convertXmlItem($rawItem));
     }
 
     /**
-     * Transforms an array into a boardgame entity
+     * Transforms an array into a Boardgame entity
      *
      * @param array $itemRow
      *
@@ -40,7 +40,7 @@ class BoardgameFactory extends AbstractFactory implements FactoryInterface
      *
      * @return array
      */
-    protected static function convertXmlItem(\SimpleXMLElement $xmlItem)
+    public static function convertXmlItem(\SimpleXMLElement $xmlItem)
     {
         $arrayItem = array(
             'bgg_id' => (int) $xmlItem['id'],

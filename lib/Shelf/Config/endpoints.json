@@ -98,9 +98,32 @@
             "parameters": {
                 "id": {
                     "location": "query",
-                    "description": "Id or an array of ids of the thing to retrieve.",
+                    "description": "Id of the boardgame to retrieve.",
                     "required": true,
                     "type": "integer"
+                },
+                "type": {
+                    "location": "query",
+                    "description": "Type of thing to filter by",
+                    "type": "string",
+                    "default": "boardgame,boardgameexpansion",
+                    "static": true
+                }
+            }
+        },
+        "getBoardgames": {
+            "extends": "thing",
+            "responseClass": "Shelf\\Response\\Boardgames",
+            "parameters": {
+                "id": {
+                    "location": "query",
+                    "description": "An array of ids of the boardgames to retrieve.",
+                    "required": true,
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
                 },
                 "type": {
                     "location": "query",

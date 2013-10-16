@@ -29,7 +29,7 @@ class Boardgame extends AbstractResponse
     }
 
     /**
-     * Returns the boardgame objects from the processed response
+     * Returns the Boardgame entity from the processed response
      *
      * @return Shelf\Entity\Boardgame
      */
