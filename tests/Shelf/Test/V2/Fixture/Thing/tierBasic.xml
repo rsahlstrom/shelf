@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="17329">
+         <thumbnail>http://cf.geekdo-images.com/images/pic403502_t.jpg</thumbnail>
+      <image>http://cf.geekdo-images.com/images/pic403502.jpg</image>
+
+                <name type="primary" sortindex="1" value="Animal Upon Animal" />
+
+
+                <name type="alternate" sortindex="1" value="Állatpiramis" />
+
+                <name type="alternate" sortindex="1" value="Animal sobre Animal" />
+
+                <name type="alternate" sortindex="1" value="Dier op Dier" />
+
+                <name type="alternate" sortindex="1" value="Eläinpyramidi" />
+
+                <name type="alternate" sortindex="1" value="Pyramide d&#039;Animaux" />
+
+                <name type="alternate" sortindex="1" value="Tier auf Tier" />
+
+                <name type="alternate" sortindex="1" value="Torre di Animali" />
+
+                <name type="alternate" sortindex="1" value="Zwierzak na zwierzaku" />
+
+                <name type="alternate" sortindex="1" value="Πυραμίδα από ζωάκια" />
+
+                <name type="alternate" sortindex="1" value="ワニに乗る" />
+
+                <name type="alternate" sortindex="1" value="動物疊疊樂" />
+
+                                                                                        <description>The animals want to show how good they are at making tall pyramids!  They must be skillfully careful: Who will position the penguin on top of the crocodile, the sheep on top of the penguin, the serpent on the sheep?  The hedgehog wants to stand on top of the pyramid but the height is making him dizzy.&amp;#10;&amp;#10;Tier auf Tier (a.k.a. Animal Upon Animal, Pyramide d'animaux, and Dier op dier) is a simple stacking game, listed for ages 4-99, with 29 cute wooden animals.&amp;#10;&amp;#10;</description>
+                                                                            <yearpublished value="2005" />
+                                                    <minplayers value="2" />
+                                                    <maxplayers value="4" />
+                                        <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="40">
+
+        <results numplayers="1">
+                    <result value="Best" numvotes="0" />
+                    <result value="Recommended" numvotes="8" />
+                    <result value="Not Recommended" numvotes="21" />
+                </results>
+
+        <results numplayers="2">
+                    <result value="Best" numvotes="13" />
+                    <result value="Recommended" numvotes="20" />
+                    <result value="Not Recommended" numvotes="3" />
+                </results>
+
+        <results numplayers="3">
+                    <result value="Best" numvotes="15" />
+                    <result value="Recommended" numvotes="23" />
+                    <result value="Not Recommended" numvotes="1" />
+                </results>
+
+        <results numplayers="4">
+                    <result value="Best" numvotes="32" />
+                    <result value="Recommended" numvotes="7" />
+                    <result value="Not Recommended" numvotes="0" />
+                </results>
+
+        <results numplayers="4+">
+                    <result value="Best" numvotes="0" />
+                    <result value="Recommended" numvotes="2" />
+                    <result value="Not Recommended" numvotes="21" />
+                </results>
+    </poll>
+                                        <playingtime value="15" />
+                                                    <minage value="4" />
+                                        <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="27">
+            <results>
+                    <result value="2" numvotes="2" />
+                    <result value="3" numvotes="11" />
+                    <result value="4" numvotes="9" />
+                    <result value="5" numvotes="2" />
+                    <result value="6" numvotes="3" />
+                    <result value="8" numvotes="0" />
+                    <result value="10" numvotes="0" />
+                    <result value="12" numvotes="0" />
+                    <result value="14" numvotes="0" />
+                    <result value="16" numvotes="0" />
+                    <result value="18" numvotes="0" />
+                    <result value="21 and up" numvotes="0" />
+                </results>
+    </poll>
+                            <poll name="language_dependence" title="Language Dependence" totalvotes="16">
+
+        <results>
+                    <result level="1" value="No necessary in-game text" numvotes="16" />
+                    <result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
+                    <result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
+                    <result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
+                    <result level="5" value="Unplayable in another language" numvotes="0" />
+                </results>
+    </poll>
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecategory" id="1032" value="Action / Dexterity" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecategory" id="1089" value="Animals" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecategory" id="1041" value="Children's Game" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2072" value="Dice Rolling" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamefamily" id="16840" value="Mitbringspiele (HABA)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamefamily" id="9867" value="Tier Auf Tier" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="126484" value="Animal Circus (fan expansion for Animal Upon Animal)" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamedesigner" id="5178" value="Klaus Miltenberger" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="15754" value="Michael Bayer" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="384" value="HABA - Habermaaß GmbH" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</item></items>

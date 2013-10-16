@@ -2,96 +2,111 @@
 
 namespace Shelf\V2\Factory;
 
-use Shelf\Common\Entity\Boardgame as Boardgame;
-use Shelf\Common\Entity\Boardgame\Name as BoardgameName;
+use Shelf\Common\Entity\Boardgame;
 
 /**
  * Factory to convert raw data into Boardgame Entities
  */
-class BoardgameFactory implements FactoryInterface
+class BoardgameFactory extends AbstractFactory implements FactoryInterface
 {
     /**
-     * Transforms a raw xml response from the BGG API to an array of Boardgame
-     * Entitys
+     * Transforms a raw xml item from the BGG API to a board game entity
      *
      * @param \SimpleXMLElement $rawXml
      *
-     * @return Boardgame[]
+     * @return Boardgame
      */
-    public function fromBggXml(\SimpleXMLElement $rawXml)
+    public static function fromBggXml(\SimpleXMLElement $rawItem)
     {
-        $boardgames = array();
-        foreach ($rawXml->item as $rawGame) {
-            $boardgames[] = $this->processBoardgame($rawGame);
+        return self::fromArray(self::convertXmlItem($rawItem));
+    }
+
+    /**
+     * Transforms an array into a boardgame entity
+     *
+     * @param array $itemRow
+     *
+     * @return Boardgame
+     */
+    public static function fromArray(array $itemRow)
+    {
+        return static::processBoardgame($itemRow);
+    }
+
+    /**
+     * Converts an item from the XML API into an array
+     *
+     * @param SimpleXMLElement $xmlItem
+     *
+     * @return array
+     */
+    protected static function convertXmlItem(\SimpleXMLElement $xmlItem)
+    {
+        $arrayItem = array(
+            'bgg_id' => (int) $xmlItem['id'],
+            'type' => (string) $xmlItem['type'],
+            'description' => self::processXmlApiString((string) $xmlItem->description),
+            'bgg_image_url' => (string) $xmlItem->image,
+            'bgg_thumbnail_url' => (string) $xmlItem->thumbnail,
+            'min_players' => (int) $xmlItem->minplayers['value'],
+            'max_players' => (int) $xmlItem->maxplayers['value'],
+            'min_age' => (int) $xmlItem->minage['value'],
+            'year_published' => (int) $xmlItem->yearpublished['value'],
+            'playing_time' => (int) $xmlItem->playingtime['value'],
+        );
+
+        $arrayItem['names'] = array();
+        foreach ($xmlItem->name as $xmlName) {
+            $name = array(
+                'value' => (string) $xmlName['value'],
+                'type' => (string) $xmlName['type'],
+                'sort_index' => (int) $xmlName['sortIndex'],
+            );
+            $arrayItem['names'][] = $name;
         }
-        return $boardgames;
+
+        $arrayItem['links'] = array();
+        foreach ($xmlItem->link as $xmlLink) {
+            $name = array(
+                'id' => (string) $xmlLink['id'],
+                'value' => (int) $xmlLink['value'],
+                'type' => (string) $xmlLink['type'],
+            );
+            $arrayItem['links'][] = $name;
+        }
+
+        return $arrayItem;
     }
 
     /**
      * Process a single game from the xml response
      *
-     * @param \SimpleXMLElement $rawGame
+     * @param array $gameRow
      *
      * @return Boardgame
      */
-    protected function processBoardgame(\SimpleXMLElement $rawGame)
+    protected static function processBoardgame(array $gameRow)
     {
-        $data = array();
-        $data['bgg_id'] = (int) $rawGame['id'];
-        $data['is_expansion'] = (string) $rawGame['type'] == 'boardgameexpansion';
-        $data['description'] = $this->processString((string) $rawGame->description);
-        $data['bgg_image_url'] = (string) $rawGame->image;
-        $data['bgg_thumbnail_url'] = (string) $rawGame->thumbnail;
-        $data['min_players'] = (int) $rawGame->minplayers['value'];
-        $data['max_players'] = (int) $rawGame->maxplayers['value'];
-        $data['min_age'] = (int) $rawGame->minage['value'];
-        $data['year_published'] = (int) $rawGame->yearpublished['value'];
-        $data['playing_time'] = (int) $rawGame->playingtime['value'];
-        $data['names'] = array();
-        foreach ($rawGame->name as $rawName) {
-            $name = new BoardgameName(
-                (string) $rawName['value'],
-                (string) $rawName['type'] == 'primary'
-            );
-            $name->setSortIndex((int) $rawName['sortIndex']);
-            $data['names'][] = $name;
-        }
+        if (array_key_exists('links', $gameRow)) {
+            $linksByType = array();
+            foreach ($gameRow['links'] as $link) {
+                $type = $link['type'];
 
-        $linksByType = array();
-        foreach ($rawGame->link as $rawLink) {
-            $type = (string) $rawLink['type'];
+                if (!array_key_exists($type, $linksByType)) {
+                    $linksByType[$type] = array();
+                }
 
-            if (!array_key_exists($type, $linksByType)) {
-                $linksByType[$type] = array();
+                $linksByType[$type][$link['id']] = $link['value'];
             }
 
-            $linksByType[$type][(int) $rawLink['id']] = (string) $rawLink['value'];
-        }
-
-        foreach ($linksByType as $type => $links) {
-            $type = preg_replace('/^boardgame/', '', $type);
-            $processMethod = 'process' . ucwords($type);
-            if (is_callable(array($this, $processMethod), false)) {
-                $links = $this->$processMethod($links);
+            foreach ($linksByType as $type => $links) {
+                $type = preg_replace('/^boardgame/', '', $type);
+                $gameRow[$type] = $links;
             }
-            $data[$type] = $links;
         }
 
         //@TODO: Add support for polls
 
-        return new Boardgame($data);
-    }
-
-    /**
-     * Process a string from the xml api to remove entities, trim the result, and
-     * run any other needed methods
-     *
-     * @param string $string
-     *
-     * @return string
-     */
-    protected function processString($string)
-    {
-        return trim(html_entity_decode($string));
+        return new Boardgame($gameRow);
     }
 }

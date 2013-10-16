@@ -10,9 +10,19 @@ interface FactoryInterface
     /**
      * Transforms a raw xml response from the BGG API to a Common Model object
      *
-     * @param \SimpleXMLElement $rawXml
+     * @param \SimpleXMLElement $rawItem
      *
-     * @return Shelf\Common\Model\DataAbstract[]
+     * @return Shelf\Common\Model\DataAbstract
      */
-    public function fromBggXml(\SimpleXMLElement $rawXml);
+
+    public static function fromBggXml(\SimpleXMLElement $rawItem);
+
+    /**
+     * Transforms an array to a Common Model object
+     *
+     * @param array $itemRow
+     *
+     * @return Shelf\Common\Model\DataAbstract
+     */
+    public static function fromArray(array $itemRow);
 }

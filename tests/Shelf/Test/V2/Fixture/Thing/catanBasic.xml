@@ -1,0 +1,1621 @@
+<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="13">
+         <thumbnail>http://cf.geekdo-images.com/images/pic268839_t.jpg</thumbnail>
+      <image>http://cf.geekdo-images.com/images/pic268839.jpg</image>
+
+                <name type="primary" sortindex="5" value="The Settlers of Catan" />
+
+
+                <name type="alternate" sortindex="1" value="Catan" />
+
+                <name type="alternate" sortindex="1" value="Catan Telepesei" />
+
+                <name type="alternate" sortindex="1" value="Catan: Landnemarnir" />
+
+                <name type="alternate" sortindex="1" value="Catane" />
+
+                <name type="alternate" sortindex="1" value="Catanin Uudisasukkaat" />
+
+                <name type="alternate" sortindex="3" value="I Coloni di Catan" />
+
+                <name type="alternate" sortindex="3" value="I Coloni di Katan" />
+
+                <name type="alternate" sortindex="1" value="Colonistii din Catan" />
+
+                <name type="alternate" sortindex="1" value="Colonizadores de Catan" />
+
+                <name type="alternate" sortindex="5" value="Los Colonos de Catán" />
+
+                <name type="alternate" sortindex="5" value="Les Colons de Catane" />
+
+                <name type="alternate" sortindex="5" value="Les Colons de Katane" />
+
+                <name type="alternate" sortindex="4" value="Os Descobridores de Catan" />
+
+                <name type="alternate" sortindex="5" value="Los Descubridores de Catán" />
+
+                <name type="alternate" sortindex="1" value="Els Colons de Catan" />
+
+                <name type="alternate" sortindex="1" value="Katan no Kaitakusya" />
+
+                <name type="alternate" sortindex="1" value="Katanas ieceïotâji" />
+
+                <name type="alternate" sortindex="1" value="Katanas Ieceļotāji" />
+
+                <name type="alternate" sortindex="1" value="Katani Asustajad" />
+
+                <name type="alternate" sortindex="1" value="Katano salos naujakuriai" />
+
+                <name type="alternate" sortindex="1" value="Katano Salos Naujakuriai" />
+
+                <name type="alternate" sortindex="4" value="De Kolonisten van Catan" />
+
+                <name type="alternate" sortindex="1" value="Naseljenci otoka Catan" />
+
+                <name type="alternate" sortindex="1" value="Osadníci z Katanu" />
+
+                <name type="alternate" sortindex="1" value="Osadnicy z Catanu" />
+
+                <name type="alternate" sortindex="5" value="The Settlers" />
+
+                <name type="alternate" sortindex="1" value="Settlers fra Catan" />
+
+                <name type="alternate" sortindex="5" value="The Settlers fra Catan" />
+
+                <name type="alternate" sortindex="1" value="Settlers från Catan" />
+
+                <name type="alternate" sortindex="5" value="The Settlers från Catan" />
+
+                <name type="alternate" sortindex="5" value="Die Siedler von Catan" />
+
+                <name type="alternate" sortindex="1" value="Οι Άποικοι του Κατάν" />
+
+                <name type="alternate" sortindex="1" value="Заселниците на Катан" />
+
+                <name type="alternate" sortindex="1" value="Колонизаторы" />
+
+                <name type="alternate" sortindex="1" value="המתיישבים של קטאן" />
+
+                <name type="alternate" sortindex="1" value="นักบุกเบิกแห่ง Catan" />
+
+                <name type="alternate" sortindex="1" value="カタンの開拓者" />
+
+                <name type="alternate" sortindex="1" value="カタンの開拓者たち" />
+
+                <name type="alternate" sortindex="1" value="卡坦岛" />
+
+                <name type="alternate" sortindex="1" value="卡坦島" />
+
+                <name type="alternate" sortindex="1" value="카탄" />
+
+                <name type="alternate" sortindex="1" value="카탄의 개척자" />
+
+                                                                                        <description>In Settlers of Catan, players try to be the dominant force on the island of Catan by building settlements, cities, and roads.  On each turn dice are rolled to determine what resources the island produces.  Players collect these resources to build up their civilizations to get to 10 victory points and win the game.  Multi-award-winning and one of the most popular games in recent history due to its amazing ability to appeal to non-gamers and gamers alike.&amp;#10;&amp;#10;Die Siedler von Catan was originally published by Kosmos and has gone through multiple editions. It was licensed by Mayfair and has undergone at least 4 editions as Settlers of Catan. It has also been re-published in a travel edition by Kosmos and in yet another edition for Japan/Asia, Settlers of Catan: Rockman Edition.&amp;#10;&amp;#10;Settlers of Catan is the original game in the Catan Series.&amp;#10;&amp;#10;</description>
+                                                                            <yearpublished value="1995" />
+                                                    <minplayers value="3" />
+                                                    <maxplayers value="4" />
+                                        <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="746">
+
+        <results numplayers="1">
+                    <result value="Best" numvotes="1" />
+                    <result value="Recommended" numvotes="1" />
+                    <result value="Not Recommended" numvotes="461" />
+                </results>
+
+        <results numplayers="2">
+                    <result value="Best" numvotes="4" />
+                    <result value="Recommended" numvotes="68" />
+                    <result value="Not Recommended" numvotes="442" />
+                </results>
+
+        <results numplayers="3">
+                    <result value="Best" numvotes="225" />
+                    <result value="Recommended" numvotes="400" />
+                    <result value="Not Recommended" numvotes="54" />
+                </results>
+
+        <results numplayers="4">
+                    <result value="Best" numvotes="542" />
+                    <result value="Recommended" numvotes="146" />
+                    <result value="Not Recommended" numvotes="16" />
+                </results>
+
+        <results numplayers="4+">
+                    <result value="Best" numvotes="22" />
+                    <result value="Recommended" numvotes="72" />
+                    <result value="Not Recommended" numvotes="290" />
+                </results>
+    </poll>
+                                        <playingtime value="90" />
+                                                    <minage value="10" />
+                                        <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="187">
+            <results>
+                    <result value="2" numvotes="0" />
+                    <result value="3" numvotes="0" />
+                    <result value="4" numvotes="0" />
+                    <result value="5" numvotes="2" />
+                    <result value="6" numvotes="13" />
+                    <result value="8" numvotes="87" />
+                    <result value="10" numvotes="70" />
+                    <result value="12" numvotes="10" />
+                    <result value="14" numvotes="4" />
+                    <result value="16" numvotes="0" />
+                    <result value="18" numvotes="1" />
+                    <result value="21 and up" numvotes="0" />
+                </results>
+    </poll>
+                            <poll name="language_dependence" title="Language Dependence" totalvotes="214">
+
+        <results>
+                    <result level="1" value="No necessary in-game text" numvotes="14" />
+                    <result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="181" />
+                    <result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="18" />
+                    <result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="1" />
+                    <result level="5" value="Unplayable in another language" numvotes="0" />
+                </results>
+    </poll>
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecategory" id="1026" value="Negotiation" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2072" value="Dice Rolling" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2040" value="Hand Management" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2011" value="Modular Board" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2081" value="Route/Network Building" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamemechanic" id="2008" value="Trading" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamefamily" id="3" value="Catan" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamefamily" id="11505" value="Promotional Board Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="21046" value="Atlantis: Szenarien &amp; Varianten zu Die Siedler von Catan" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="104774" value="Catakatoa" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="26352" value="Catan Austria / Wien meets Catan" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="138548" value="Catan Geographies: Austria" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="60134" value="Catan Geographies: Bayern Edition" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="73809" value="Catan Geographies: Delmarva" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="54528" value="Catan Geographies: Indiana &amp; Ohio" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="131362" value="Catan Geographies: Mallorca" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="132481" value="Catan Geographies: New York" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="39093" value="Catan Geographies: North Rhine - Westphalia" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="101942" value="Catan Geographies: Penn-Jersey" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="32270" value="Catan Geographies: Settlers of Hesse" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="131958" value="Catan Scenarios: Frenemies of Catan" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="110794" value="Catan Scenarios: Oil Springs" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="926" value="Catan: Cities &amp; Knights" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="4101" value="Catan: Cities &amp; Knights - 5-6 Player Extension" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="20038" value="Catan: Event Cards" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="135378" value="Catan: Explorers &amp; Pirates" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="325" value="Catan: Seafarers" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="4103" value="Catan: Seafarers - 5-6 Player Extension" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="27760" value="Catan: Traders &amp; Barbarians" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="34691" value="Catan: Traders &amp; Barbarians: 5-6 Player Extension" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="134277" value="Catan: World Wonders (fan expansion to Catan)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="42147" value="Der Hafenmeister" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="128751" value="Heroes &amp; Capitols (fan expansion for Settlers of Catan)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="91061" value="Hexen, Zauberer &amp; Drachen (Fan expansion to Catan: Cities and Knights)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="95940" value="Katani  pankur" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="89606" value="Kirche, Glaube &amp; Reformation (Fan expansion to Catan: Cities and Knights)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="21101" value="De Kolonisten van Catan: De Diamanten" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="41161" value="De Kolonisten van Catan: De drie Handelsteden van Noord-Nederland" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="21097" value="De Kolonisten van Catan: De Koloniën" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="21443" value="De Kolonisten van Catan: De Specialisten" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="21100" value="De Kolonisten van Catan: De Wereldwonderen" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="21098" value="De Kolonisten van Catan: De Woestijnruiters" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="21099" value="De Kolonisten van Catan: Het Grote Kanaal" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="22598" value="Saggsen-Gadan - De säggs'schn Siedler / Catan-OFFENSIVE in Chemnitz" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="2807" value="The Settlers of Catan: 5-6 Player Extension" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="19343" value="The Settlers of Catan: The Fishermen of Catan" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="20247" value="The Settlers of Catan: The Great River" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="10817" value="Settlers of New Catan (and extra modules)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="111377" value="Die Siedler von Catan - Thüringen Edition" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="1137" value="Die Siedler von Catan: Das Buch zum Spielen" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="84977" value="Die Siedler von Catan: Der Schokoladenmarkt" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="26079" value="Die Siedler von Catan: Die große Karawane" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="86669" value="Die Siedler von Catan: Die Helfer von Catan" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="90100" value="Die Siedler von Catan: Die Pioniere (fan expansion for The Settlers of Catan)" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="306" value="Die Siedler von Catan: Historische Szenarien" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="1361" value="Die Siedler von Catan: Historische Szenarien II" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="86008" value="Die Siedler von Catan: Österreich Edition" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="31933" value="Die Siedler von Catan: Renaissance in der Steiermark &amp; Burgbau auf Chaffenberch" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="37690" value="Die Siedler von Catan: Rincewind und der Tourist" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="56157" value="Die Siedler von Catan: Schätze, Drachen &amp; Entdecker" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameexpansion" id="37969" value="Die Siedler von Luxemburg" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamecompilation" id="17419" value="CATAN 3D Collector's Edition" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamedesigner" id="11" value="Klaus Teuber" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="12036" value="Volkan Baga" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="12382" value="Tanja Donner" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="13034" value="Pete Fenlon" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="5442" value="Jason Hawkins" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="26874" value="Michaela Kienle" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="4959" value="Harald Lieske" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="11825" value="Michael Menzel" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="24191" value="Marion Pott" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="25612" value="Matt Schwabel" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="11883" value="Franz Vohwinkel" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgameartist" id="12063" value="Stephen Graham Walsh" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="267" value="999 Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="4304" value="Albi" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="7340" value="Astrel Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="7162" value="Brain Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="4358" value="Capcom" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="4335" value="Competo / Marektoy" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="496" value="dan-spil" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="41" value="Descartes Editeur" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="2366" value="Devir" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="116" value="Eurogames" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5657" value="Filosofia Édition" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="4617" value="Galakta" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5530" value="Giochi Uniti" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="858" value="Grow Jogos e Brinquedos" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="23382" value="HaKubia" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="4417" value="Hanayama" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="18852" value="Hobby World" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="8822" value="Ideal Board Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5020" value="Ísöld ehf." />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="6214" value="Kaissa Chess &amp; Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="8291" value="Korea Boardgames" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="37" value="KOSMOS" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="2654" value="L&amp;M Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="5597" value="Laser plus" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="3218" value="Lautapelit.fi" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="3533" value="Logojogos" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="10" value="Mayfair Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="24886" value="Ninive Games" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="22" value="Piatnik" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="3612" value="Prata Speles" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="8313" value="Smart Ltd" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="9235" value="Stupor Mundi" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="9234" value="Swan Panasia Co., Ltd." />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="42" value="Tilsit" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    <link type="boardgamepublisher" id="13481" value="TRY SOFT" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</item></items>
