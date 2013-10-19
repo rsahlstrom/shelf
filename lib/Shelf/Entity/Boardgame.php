@@ -11,17 +11,12 @@ use Shelf\Factory\BoardgameFactory;
  */
 class Boardgame extends AbstractDataEntity
 {
-    protected $nameCollection = null;
-
     /**
-     * Returns true if the game is an expansion
+     * Collection of names
      *
-     * @return boolean
+     * @var NameCollection
      */
-    public function isExpansion()
-    {
-        return $this->getType() == 'boardgameexpansion';
-    }
+    protected $nameCollection = null;
 
     /**
      * Returns a collection of board game names
@@ -45,6 +40,42 @@ class Boardgame extends AbstractDataEntity
     public function getPrimaryName()
     {
         return $this->getNames()->getPrimaryName();
+    }
+
+    /**
+     * Returns a boolean showing whether a game supports a requested number of
+     * players
+     *
+     * @param int $numPlayers
+     *
+     * @return boolean
+     */
+    public function supportsPlayers($numPlayers)
+    {
+        return $numPlayers >= $this->getMinPlayers()
+            && $numPlayers <= $this->getMaxPlayers();
+    }
+
+    /**
+     * Returns a boolean showing whether a game supports a requested age
+     *
+     * @param int $age
+     *
+     * @return boolean
+     */
+    public function supportsAge($age)
+    {
+        return $age >= $this->getMinAge();
+    }
+
+    /**
+     * Returns true if the game is an expansion
+     *
+     * @return boolean
+     */
+    public function isExpansion()
+    {
+        return $this->getType() == 'boardgameexpansion';
     }
 
     /**
