@@ -14,18 +14,18 @@ class NameCollectionTest extends \PHPUnit_Framework_TestCase
             array(
                 array(
                     'value' => 'Nights of Arabian Tales',
-                    'type' => 'secondary',
-                    'sort_index' => 0,
+                    'type' => 'alternate',
+                    'sort_index' => 1,
                 ),
                 array(
                     'value' => 'Tales of Arabian Nights',
                     'type' => 'primary',
-                    'sort_index' => 0,
+                    'sort_index' => 1,
                 ),
                 array(
                     'value' => 'Arabian Nights of Tales',
-                    'type' => 'secondary',
-                    'sort_index' => 0,
+                    'type' => 'alternate',
+                    'sort_index' => 1,
                 ),
             )
         );
@@ -48,18 +48,18 @@ class NameCollectionTest extends \PHPUnit_Framework_TestCase
             array(
                 array(
                     'value' => 'Nights of Arabian Tales',
-                    'type' => 'secondary',
-                    'sort_index' => 0,
+                    'type' => 'alternate',
+                    'sort_index' => 1,
                 ),
                 array(
                     'value' => 'Tales of Arabian Nights',
-                    'type' => 'secondary',
-                    'sort_index' => 0,
+                    'type' => 'alternate',
+                    'sort_index' => 1,
                 ),
                 array(
                     'value' => 'Arabian Nights of Tales',
-                    'type' => 'secondary',
-                    'sort_index' => 0,
+                    'type' => 'alternate',
+                    'sort_index' => 1,
                 ),
             )
         );

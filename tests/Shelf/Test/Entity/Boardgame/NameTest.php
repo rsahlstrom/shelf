@@ -7,7 +7,7 @@ use Shelf\Entity\Boardgame\Name;
 class NameTest extends \PHPUnit_Framework_TestCase
 {
     protected $primaryName;
-    protected $secondaryName;
+    protected $alternateName;
 
     public function setUp()
     {
@@ -15,15 +15,15 @@ class NameTest extends \PHPUnit_Framework_TestCase
             array(
                 'value' => 'The Primary Name',
                 'type' => 'primary',
-                'sort_index' => 4,
+                'sort_index' => 5,
             )
         );
 
-        $this->secondaryName = Name::factory(
+        $this->alternateName = Name::factory(
             array(
-                'value' => 'A Secondary Name',
-                'type' => 'secondary',
-                'sort_index' => 2,
+                'value' => 'An Alternate Name',
+                'type' => 'alternate',
+                'sort_index' => 4,
             )
         );
     }
@@ -31,7 +31,14 @@ class NameTest extends \PHPUnit_Framework_TestCase
     public function testIsPrimary()
     {
         $this->assertTrue($this->primaryName->isPrimary());
-        $this->assertFalse($this->secondaryName->isPrimary());
+        $this->assertFalse($this->alternateName->isPrimary());
+    }
+
+    public function testGetSortIndex()
+    {
+        $this->assertEquals(5, $this->primaryName->getSortIndex());
+        $this->assertEquals(5, $this->primaryName->getSortIndex(false));
+        $this->assertEquals(4, $this->primaryName->getSortIndex(true));
     }
 
     public function testGetSortValue()
@@ -39,13 +46,13 @@ class NameTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Primary Name, The', $this->primaryName->getSortValue());
         $this->assertEquals('Primary Name, The', $this->primaryName->getSortValue(true));
 
-        $this->assertEquals('Secondary Name, A', $this->secondaryName->getSortValue());
-        $this->assertEquals('Secondary Name, A', $this->secondaryName->getSortValue(true));
+        $this->assertEquals('Alternate Name, An', $this->alternateName->getSortValue());
+        $this->assertEquals('Alternate Name, An', $this->alternateName->getSortValue(true));
     }
 
     public function testGetSortValueNoAppend()
     {
         $this->assertEquals('Primary Name', $this->primaryName->getSortValue(false));
-        $this->assertEquals('Secondary Name', $this->secondaryName->getSortValue(false));
+        $this->assertEquals('Alternate Name', $this->alternateName->getSortValue(false));
     }
 }

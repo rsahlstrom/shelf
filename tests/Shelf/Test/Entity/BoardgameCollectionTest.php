@@ -36,12 +36,12 @@ class BoardgameCollectionTest extends \PHPUnit_Framework_TestCase
                         array(
                             'value' => 'The Settlers of Catan',
                             'type' => 'primary',
-                            'sort_index' => '4',
+                            'sort_index' => '5',
                         ),
                         array(
                             'value' => 'Catan',
-                            'type' => 'secondary',
-                            'sort_index' => '0',
+                            'type' => 'alternate',
+                            'sort_index' => '1',
                         ),
                     ),
                 ),
@@ -51,12 +51,12 @@ class BoardgameCollectionTest extends \PHPUnit_Framework_TestCase
                         array(
                             'value' => 'Animal Upon Animal',
                             'type' => 'primary',
-                            'sort_index' => '0',
+                            'sort_index' => '1',
                         ),
                         array(
                             'value' => 'Tier auf Tier',
-                            'type' => 'secondary',
-                            'sort_index' => '0',
+                            'type' => 'alternate',
+                            'sort_index' => '1',
                         ),
                     ),
                 ),
@@ -65,13 +65,13 @@ class BoardgameCollectionTest extends \PHPUnit_Framework_TestCase
                     'names' => array(
                         array(
                             'value' => 'Taxi Drivers',
-                            'type' => 'secondary',
-                            'sort_index' => '0',
+                            'type' => 'alternate',
+                            'sort_index' => '1',
                         ),
                         array(
                             'value' => 'Taxi',
                             'type' => 'primary',
-                            'sort_index' => '0',
+                            'sort_index' => '1',
                         ),
                     ),
                 ),

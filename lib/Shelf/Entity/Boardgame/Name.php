@@ -21,6 +21,22 @@ class Name extends AbstractDataEntity
     }
 
     /**
+     * Returns the sort index with an option to make it zero based
+     *
+     * @param boolean $zeroBased OPTIONAL
+     *
+     * @return int
+     */
+    public function getSortIndex($zeroBased = false)
+    {
+        $sortIndex = parent::getSortIndex();
+        if ($zeroBased) {
+            --$sortIndex;
+        }
+        return $sortIndex;
+    }
+
+    /**
      * Returns the value starting with the sort index
      *
      * @param $appendPreSort OPTIONAL Controls whether the characters pre-sort
@@ -31,7 +47,7 @@ class Name extends AbstractDataEntity
     public function getSortValue($appendPreSort = true)
     {
         $value = $this->getValue();
-        $sortIndex = $this->getSortIndex();
+        $sortIndex = $this->getSortIndex(true);
 
         $sortValue = substr($value, $sortIndex);
         if ($appendPreSort) {
