@@ -30,4 +30,28 @@ class NameCollection extends AbstractDataEntityCollection
 
         throw new OutOfBoundsException('No Primary Name Found!');
     }
+
+    /**
+     * Sorts the collection by the value
+     */
+    public function sortByValue()
+    {
+        usort($this->children, array($this, 'valueSort'));
+    }
+
+    /**
+     * Sorts two names by their sort value
+     *
+     * @param Name $nameA
+     * @param Name $nameB
+     *
+     * @return boolean
+     */
+    protected function valueSort(Name $nameA, Name $nameB)
+    {
+        return strcasecmp(
+            $nameA->getSortValue(),
+            $nameB->getSortValue()
+        );
+    }
 }

@@ -66,4 +66,14 @@ class NameCollectionTest extends \PHPUnit_Framework_TestCase
 
         $nameCollectionNoPrimary->getPrimaryName()->getValue();
     }
+
+
+    public function testSortByValue()
+    {
+        $this->nameCollection->sortByValue();
+
+        $this->assertEquals('Arabian Nights of Tales', $this->nameCollection[0]->getValue());
+        $this->assertEquals('Nights of Arabian Tales', $this->nameCollection[1]->getValue());
+        $this->assertEquals('Tales of Arabian Nights', $this->nameCollection[2]->getValue());
+    }
 }
