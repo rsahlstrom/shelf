@@ -6,70 +6,77 @@ use Shelf\Factory\BoardgameFactory;
 
 class BoardgameTest extends \PHPUnit_Framework_TestCase
 {
-    protected $game;
-    protected $expansion;
+    public static $game;
+    public static $expansion;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
         $fixtureDir = __DIR__ . '/../Fixture/Thing';
 
         $xmlGame = simplexml_load_file($fixtureDir . '/arabianBasic.xml');
-        $this->game = BoardgameFactory::fromBggXml($xmlGame->item[0]);
+        self::$game = BoardgameFactory::fromBggXml($xmlGame->item[0]);
 
         $xmlExpansion = simplexml_load_file($fixtureDir . '/catanCitiesAndKnightsBasic.xml');
-        $this->expansion = BoardgameFactory::fromBggXml($xmlExpansion->item[0]);
+        self::$expansion = BoardgameFactory::fromBggXml($xmlExpansion->item[0]);
     }
 
     public function testGetNames()
     {
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\NameCollection',
-            $this->game->getNames()
+            self::$game->getNames()
         );
 
-        $this->assertCount(1, $this->game->getNames());
-        $this->assertCount(28, $this->expansion->getNames());
+        $this->assertCount(1, self::$game->getNames());
+        $this->assertCount(28, self::$expansion->getNames());
     }
 
     public function testGetPrimaryName()
     {
-        $this->assertSame('Tales of the Arabian Nights', $this->game->getPrimaryName()->getValue());
-        $this->assertSame('Catan: Cities & Knights', $this->expansion->getPrimaryName()->getValue());
+        $this->assertSame('Tales of the Arabian Nights', self::$game->getPrimaryName()->getValue());
+        $this->assertSame('Catan: Cities & Knights', self::$expansion->getPrimaryName()->getValue());
     }
 
     public function testSupportsPlayers()
     {
-        $this->assertTrue($this->game->supportsPlayers(1));
-        $this->assertTrue($this->game->supportsPlayers(2));
-        $this->assertTrue($this->game->supportsPlayers(3));
-        $this->assertTrue($this->game->supportsPlayers(4));
-        $this->assertTrue($this->game->supportsPlayers(5));
-        $this->assertTrue($this->game->supportsPlayers(6));
+        $this->assertTrue(self::$game->supportsPlayers(1));
+        $this->assertTrue(self::$game->supportsPlayers(2));
+        $this->assertTrue(self::$game->supportsPlayers(3));
+        $this->assertTrue(self::$game->supportsPlayers(4));
+        $this->assertTrue(self::$game->supportsPlayers(5));
+        $this->assertTrue(self::$game->supportsPlayers(6));
 
-        $this->assertFalse($this->game->supportsPlayers(0));
-        $this->assertFalse($this->game->supportsPlayers(7));
+        $this->assertFalse(self::$game->supportsPlayers(0));
+        $this->assertFalse(self::$game->supportsPlayers(7));
     }
 
     public function testSupportsAge()
     {
-        $this->assertFalse($this->game->supportsAge(0));
-        $this->assertFalse($this->game->supportsAge(11));
+        $this->assertFalse(self::$game->supportsAge(0));
+        $this->assertFalse(self::$game->supportsAge(11));
 
-        $this->assertTrue($this->game->supportsAge(12));
-        $this->assertTrue($this->game->supportsAge(15));
-        $this->assertTrue($this->game->supportsAge(99));
-        $this->assertTrue($this->game->supportsAge(1072));
+        $this->assertTrue(self::$game->supportsAge(12));
+        $this->assertTrue(self::$game->supportsAge(15));
+        $this->assertTrue(self::$game->supportsAge(99));
+        $this->assertTrue(self::$game->supportsAge(1072));
+    }
+
+    public function testCanFinishIn()
+    {
+        $this->assertFalse(self::$game->canFinishIn(30));
+        $this->assertTrue(self::$game->canFinishIn(120));
+        $this->assertTrue(self::$game->canFinishIn(180));
     }
 
     public function testIsExpansion()
     {
-        $this->assertFalse($this->game->isExpansion());
-        $this->assertTrue($this->expansion->isExpansion());
+        $this->assertFalse(self::$game->isExpansion());
+        $this->assertTrue(self::$expansion->isExpansion());
     }
 
     public function testGetLinks()
     {
-        $linkCollection = $this->game->getLinks();
+        $linkCollection = self::$game->getLinks();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -100,9 +107,16 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasLink()
+    {
+        $this->assertTrue(self::$game->hasLink('Role Playing'));
+        $this->assertTrue(self::$game->hasLink('Z-Man Games'));
+        $this->assertFalse(self::$game->hasLink('Negotiation'));
+    }
+
     public function testGetCategories()
     {
-        $linkCollection = $this->game->getCategories();
+        $linkCollection = self::$game->getCategories();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -119,9 +133,17 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasCategory()
+    {
+        $this->assertTrue(self::$game->hasCategory('Adventure'));
+        $this->assertTrue(self::$game->hasCategory('Fantasy'));
+        $this->assertFalse(self::$game->hasCategory('Dice Rolling'));
+        $this->assertFalse(self::$game->hasCategory('Negotiation'));
+    }
+
     public function testGetMechanics()
     {
-        $linkCollection = $this->game->getMechanics();
+        $linkCollection = self::$game->getMechanics();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -140,9 +162,16 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasMechanics()
+    {
+        $this->assertTrue(self::$game->hasMechanic('Role Playing'));
+        $this->assertFalse(self::$game->hasMechanic('Arabian'));
+        $this->assertFalse(self::$game->hasMechanic('Hand Management'));
+    }
+
     public function testGetDesigners()
     {
-        $linkCollection = $this->game->getDesigners();
+        $linkCollection = self::$game->getDesigners();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -160,9 +189,16 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasDesigner()
+    {
+        $this->assertTrue(self::$game->hasDesigner('Zev Shlasinger'));
+        $this->assertFalse(self::$game->hasDesigner('Dan Harding'));
+        $this->assertFalse(self::$game->hasDesigner('Russell Ahlstrom'));
+    }
+
     public function testGetArtists()
     {
-        $linkCollection = $this->game->getArtists();
+        $linkCollection = self::$game->getArtists();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -178,9 +214,16 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasArtist()
+    {
+        $this->assertTrue(self::$game->hasArtist('Peter Gifford'));
+        $this->assertFalse(self::$game->hasArtist('Solitaire Games'));
+        $this->assertFalse(self::$game->hasArtist('Russell Ahlstrom'));
+    }
+
     public function testGetPublishers()
     {
-        $linkCollection = $this->game->getPublishers();
+        $linkCollection = self::$game->getPublishers();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -195,9 +238,16 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasPublisher()
+    {
+        $this->assertTrue(self::$game->hasPublisher('Z-Man Games'));
+        $this->assertFalse(self::$game->hasPublisher('Eric Goldberg'));
+        $this->assertFalse(self::$game->hasPublisher('Days of Wonder'));
+    }
+
     public function testGetFamilies()
     {
-        $linkCollection = $this->game->getFamilies();
+        $linkCollection = self::$game->getFamilies();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -212,9 +262,16 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasFamily()
+    {
+        $this->assertTrue(self::$game->hasFamily('Solitaire Games'));
+        $this->assertFalse(self::$game->hasFamily('Storytelling'));
+        $this->assertFalse(self::$game->hasFamily('Kickstarter'));
+    }
+
     public function testGetExpansions()
     {
-        $linkCollection = $this->expansion->getExpansions();
+        $linkCollection = self::$expansion->getExpansions();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -234,9 +291,54 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testHasExpanions()
+    {
+        $this->assertFalse(self::$game->hasExpansions());
+        $this->assertTrue(self::$expansion->hasExpansions());
+    }
+
+    public function testHasExpansion()
+    {
+        $this->assertTrue(self::$expansion->hasExpansion('Catan: Cities & Knights - 5-6 Player Extension'));
+        $this->assertFalse(self::$expansion->hasExpansion('Medieval'));
+        $this->assertFalse(self::$expansion->hasExpansion('Catan: Seafarers - 5-6'));
+
+        $this->assertFalse(self::$game->hasExpansion('Untold Stories of the Arabian Nights'));
+    }
+
+    public function testGetCompilations()
+    {
+        $linkCollection = self::$expansion->getCompilations();
+
+        $this->assertInstanceOf(
+            'Shelf\\Entity\\Boardgame\\LinkCollection',
+            $linkCollection
+        );
+
+        $this->assertEquals(
+            array(
+                'CATAN 3D Collector\'s Edition',
+            ),
+            $linkCollection->getValue()
+        );
+    }
+
+    public function testHasCompilations()
+    {
+        $this->assertTrue(self::$expansion->hasCompilations());
+        $this->assertFalse(self::$game->hasCompilations());
+    }
+
+    public function testHasCompilation()
+    {
+        $this->assertTrue(self::$expansion->hasCompilation('CATAN 3D Collector\'s Edition'));
+        $this->assertFalse(self::$expansion->hasCompilation('Catan: Cities & Knights - 5-6 Player Extension'));
+        $this->assertFalse(self::$expansion->hasCompilation('Carcassonne Big Box'));
+    }
+
     public function testGetImplementations()
     {
-        $linkCollection = $this->game->getImplementations();
+        $linkCollection = self::$game->getImplementations();
 
         $this->assertInstanceOf(
             'Shelf\\Entity\\Boardgame\\LinkCollection',
@@ -249,5 +351,18 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
             ),
             $linkCollection->getValue()
         );
+    }
+
+    public function testHasImplementations()
+    {
+        $this->assertTrue(self::$game->hasImplementations());
+        $this->assertFalse(self::$expansion->hasImplementations());
+    }
+
+    public function testHasImplementation()
+    {
+        $this->assertTrue(self::$game->hasImplementation('Tales of the Arabian Nights'));
+        $this->assertFalse(self::$game->hasImplementation('Dice Rolling'));
+        $this->assertFalse(self::$game->hasImplementation('The Settlers of Catan'));
     }
 }

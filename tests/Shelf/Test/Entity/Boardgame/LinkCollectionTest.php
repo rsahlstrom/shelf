@@ -6,11 +6,11 @@ use Shelf\Entity\Boardgame\LinkCollection;
 
 class LinkCollectionTest extends \PHPUnit_Framework_TestCase
 {
-    protected $linkCollection;
+    public static $linkCollection;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->linkCollection = LinkCollection::factory(
+        self::$linkCollection = LinkCollection::factory(
             array(
                 array(
                     'id' => 1,
@@ -46,6 +46,11 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                     'id' => 7,
                     'type' => 'expansion',
                     'value' => 'expansion a',
+                ),
+                array(
+                    'id' => 17,
+                    'type' => 'compilation',
+                    'value' => 'compilation a',
                 ),
                 array(
                     'id' => 8,
@@ -88,6 +93,11 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                     'value' => 'expansion b',
                 ),
                 array(
+                    'id' => 18,
+                    'type' => 'compilation',
+                    'value' => 'compilation b',
+                ),
+                array(
                     'id' => 16,
                     'type' => 'implementation',
                     'value' => 'implementation b',
@@ -103,7 +113,7 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'category a',
                 'category b'
             ),
-            $this->linkCollection->getCategories()->getValue()
+            self::$linkCollection->getCategories()->getValue()
         );
     }
 
@@ -114,7 +124,7 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'mechanic a',
                 'mechanic b'
             ),
-            $this->linkCollection->getMechanics()->getValue()
+            self::$linkCollection->getMechanics()->getValue()
         );
     }
 
@@ -125,7 +135,7 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'designer a',
                 'designer b'
             ),
-            $this->linkCollection->getDesigners()->getValue()
+            self::$linkCollection->getDesigners()->getValue()
         );
     }
 
@@ -136,7 +146,7 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'artist a',
                 'artist b'
             ),
-            $this->linkCollection->getArtists()->getValue()
+            self::$linkCollection->getArtists()->getValue()
         );
     }
 
@@ -147,7 +157,7 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'publisher a',
                 'publisher b'
             ),
-            $this->linkCollection->getPublishers()->getValue()
+            self::$linkCollection->getPublishers()->getValue()
         );
     }
 
@@ -158,7 +168,7 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'family a',
                 'family b'
             ),
-            $this->linkCollection->getFamilies()->getValue()
+            self::$linkCollection->getFamilies()->getValue()
         );
     }
 
@@ -169,7 +179,18 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'expansion a',
                 'expansion b'
             ),
-            $this->linkCollection->getExpansions()->getValue()
+            self::$linkCollection->getExpansions()->getValue()
+        );
+    }
+
+    public function testGetCompilations()
+    {
+        $this->assertEquals(
+            array(
+                'compilation a',
+                'compilation b'
+            ),
+            self::$linkCollection->getCompilations()->getValue()
         );
     }
 
@@ -180,7 +201,7 @@ class LinkCollectionTest extends \PHPUnit_Framework_TestCase
                 'implementation a',
                 'implementation b'
             ),
-            $this->linkCollection->getImplementations()->getValue()
+            self::$linkCollection->getImplementations()->getValue()
         );
     }
 }

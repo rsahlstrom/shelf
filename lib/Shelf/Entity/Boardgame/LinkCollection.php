@@ -88,6 +88,16 @@ class LinkCollection extends AbstractDataEntityCollection
     }
 
     /**
+     * Returns the links with a type of compilation
+     *
+     * @return LinkCollection
+     */
+    public function getCompilations()
+    {
+        return $this->filterByType('compilation');
+    }
+
+    /**
      * Returns the links with a type of implementation
      *
      * @return LinkCollection

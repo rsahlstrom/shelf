@@ -6,11 +6,11 @@ use Shelf\Entity\Boardgame\NameCollection;
 
 class NameCollectionTest extends \PHPUnit_Framework_TestCase
 {
-    protected $nameCollection;
+    public static $nameCollection;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->nameCollection = NameCollection::factory(
+        self::$nameCollection = NameCollection::factory(
             array(
                 array(
                     'value' => 'Nights of Arabian Tales',
@@ -35,7 +35,7 @@ class NameCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             'Tales of Arabian Nights',
-            $this->nameCollection->getPrimaryName()->getValue()
+            self::$nameCollection->getPrimaryName()->getValue()
         );
     }
 
@@ -69,10 +69,10 @@ class NameCollectionTest extends \PHPUnit_Framework_TestCase
 
     public function testSortByValue()
     {
-        $this->nameCollection->sortByValue();
+        self::$nameCollection->sortByValue();
 
-        $this->assertEquals('Arabian Nights of Tales', $this->nameCollection[0]->getValue());
-        $this->assertEquals('Nights of Arabian Tales', $this->nameCollection[1]->getValue());
-        $this->assertEquals('Tales of Arabian Nights', $this->nameCollection[2]->getValue());
+        $this->assertEquals('Arabian Nights of Tales', self::$nameCollection[0]->getValue());
+        $this->assertEquals('Nights of Arabian Tales', self::$nameCollection[1]->getValue());
+        $this->assertEquals('Tales of Arabian Nights', self::$nameCollection[2]->getValue());
     }
 }

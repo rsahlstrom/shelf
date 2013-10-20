@@ -77,6 +77,19 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns a boolean if you can finish a game in less minutes than the amount
+     * specified
+     *
+     * @param int $minutes
+     *
+     * @return boolean
+     */
+    public function canFinishIn($minutes)
+    {
+        return $minutes >= $this->getPlayingTime();
+    }
+
+    /**
      * Returns true if the game is an expansion
      *
      * @return boolean
@@ -101,6 +114,19 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns a boolean if a link of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasLink($value)
+    {
+        $links = $this->getLinks()->filterByValue($value);
+        return count($links) > 0;
+    }
+
+    /**
      * Returns a collection of categories associated with a game
      *
      * @return LinkCollection
@@ -108,6 +134,19 @@ class Boardgame extends AbstractDataEntity
     public function getCategories()
     {
         return $this->getLinks()->getCategories();
+    }
+
+    /**
+     * Returns a boolean if a category of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasCategory($value)
+    {
+        $links = $this->getCategories()->filterByValue($value);
+        return count($links) > 0;
     }
 
     /**
@@ -121,6 +160,19 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns a boolean if a mechanic of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasMechanic($value)
+    {
+        $links = $this->getMechanics()->filterByValue($value);
+        return count($links) > 0;
+    }
+
+    /**
      * Returns a collection of designers associated with a game
      *
      * @return LinkCollection
@@ -128,6 +180,19 @@ class Boardgame extends AbstractDataEntity
     public function getDesigners()
     {
         return $this->getLinks()->getDesigners();
+    }
+
+    /**
+     * Returns a boolean if a designer of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasDesigner($value)
+    {
+        $links = $this->getDesigners()->filterByValue($value);
+        return count($links) > 0;
     }
 
     /**
@@ -141,6 +206,19 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns a boolean if an artist of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasArtist($value)
+    {
+        $links = $this->getArtists()->filterByValue($value);
+        return count($links) > 0;
+    }
+
+    /**
      * Returns a collection of publishers associated with a game
      *
      * @return LinkCollection
@@ -148,6 +226,19 @@ class Boardgame extends AbstractDataEntity
     public function getPublishers()
     {
         return $this->getLinks()->getPublishers();
+    }
+
+    /**
+     * Returns a boolean if a publisher of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasPublisher($value)
+    {
+        $links = $this->getPublishers()->filterByValue($value);
+        return count($links) > 0;
     }
 
     /**
@@ -161,6 +252,19 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns a boolean if a family of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasFamily($value)
+    {
+        $links = $this->getFamilies()->filterByValue($value);
+        return count($links) > 0;
+    }
+
+    /**
      * Returns a collection of expansions associated with a game
      *
      * @return LinkCollection
@@ -171,6 +275,62 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns a boolean showing whether the game has any expansions
+     *
+     * @return boolean
+     */
+    public function hasExpansions()
+    {
+        return count($this->getExpansions()) > 0;
+    }
+
+    /**
+     * Returns a boolean if an expansion of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasExpansion($value)
+    {
+        $links = $this->getExpansions()->filterByValue($value);
+        return count($links) > 0;
+    }
+
+    /**
+     * Returns a collection of compilations associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getCompilations()
+    {
+        return $this->getLinks()->getCompilations();
+    }
+
+    /**
+     * Returns a boolean showing whether the game has any compilations
+     *
+     * @return boolean
+     */
+    public function hasCompilations()
+    {
+        return count($this->getCompilations()) > 0;
+    }
+
+    /**
+     * Returns a boolean if a compilation of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasCompilation($value)
+    {
+        $links = $this->getCompilations()->filterByValue($value);
+        return count($links) > 0;
+    }
+
+    /**
      * Returns a collection of implementations associated with a game
      *
      * @return LinkCollection
@@ -178,6 +338,29 @@ class Boardgame extends AbstractDataEntity
     public function getImplementations()
     {
         return $this->getLinks()->getImplementations();
+    }
+
+    /**
+     * Returns a boolean showing whether the game has any expansions
+     *
+     * @return boolean
+     */
+    public function hasImplementations()
+    {
+        return count($this->getImplementations()) > 0;
+    }
+
+    /**
+     * Returns a boolean if an implementation of the specified value is present on the game
+     *
+     * @param string $value
+     *
+     * @return boolean
+     */
+    public function hasImplementation($value)
+    {
+        $links = $this->getImplementations()->filterByValue($value);
+        return count($links) > 0;
     }
 
     /**
