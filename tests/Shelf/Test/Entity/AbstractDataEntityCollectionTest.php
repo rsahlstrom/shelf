@@ -76,6 +76,43 @@ class AbstractDataEntityCollectionTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testFilterByArrayCaseSensitive()
+    {
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'first child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'second child', 'type' => 'wargame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'third child', 'type' => 'boardgame', 'fun' => false)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'fourth child', 'type' => 'Boardgame', 'fun' => true)
+            )
+        );
+
+        $this->assertEquals(
+            array(
+                'first child',
+            ),
+            $this->entity->filterByArray(
+                array(
+                    'type' => 'boardgame',
+                    'fun' => true
+                ),
+                true
+            )->getName()
+        );
+    }
+
     public function testGetNamesMagicMethod()
     {
         $this->entity->add(
@@ -112,6 +149,26 @@ class AbstractDataEntityCollectionTest extends \PHPUnit_Framework_TestCase
                 'third child',
             ),
             $this->entity->filterByType('boardgame')->getName()
+        );
+    }
+
+    public function testFilterByTypeMagicMethodCaseSensitive()
+    {
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'first child', 'type' => 'boardgame'))
+        );
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'second child', 'type' => 'wargame'))
+        );
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'third child', 'type' => 'Boardgame'))
+        );
+
+        $this->assertEquals(
+            array(
+                'first child',
+            ),
+            $this->entity->filterByType('boardgame', true)->getName()
         );
     }
 

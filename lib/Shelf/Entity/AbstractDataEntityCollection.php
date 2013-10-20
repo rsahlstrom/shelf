@@ -41,10 +41,11 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
      * values
      *
      * @param array $filterSets
+     * @param boolean $caseSensitive OPTIONAL
      *
      * @return AbstractDataEntityCollection
      */
-    public function filterByArray(array $filterSets)
+    public function filterByArray(array $filterSets, $caseSensitive = false)
     {
         $collection = new static();
 
@@ -52,7 +53,14 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
             $childMatches = true;
             foreach ($filterSets as $key => $value) {
                 $getter = $this->getFunctionName('get_' . $key);
-                if ($child->$getter() != $value) {
+                $childValue = $child->$getter();
+
+                if (!$caseSensitive) {
+                    $value = strtolower($value);
+                    $childValue = strtolower($childValue);
+                }
+
+                if ($childValue != $value) {
                     $childMatches = false;
                     break;
                 }
@@ -81,8 +89,13 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
             return $this->getFromEachChild($method);
         } elseif (strpos($method, 'filterBy') === 0) {
             $filterKey = preg_replace('/^filterBy/i', '', $method);
+            $caseSensitive = false;
+            if (isset($args[1])) {
+                $caseSensitive = $args[1];
+            }
             return $this->filterByArray(
-                array($filterKey => $args[0])
+                array($filterKey => $args[0]),
+                $caseSensitive
             );
         }
 

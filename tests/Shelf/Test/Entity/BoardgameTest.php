@@ -110,6 +110,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasLink()
     {
         $this->assertTrue(self::$game->hasLink('Role Playing'));
+        $this->assertTrue(self::$game->hasLink('role playing'));
         $this->assertTrue(self::$game->hasLink('Z-Man Games'));
         $this->assertFalse(self::$game->hasLink('Negotiation'));
     }
@@ -136,6 +137,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasCategory()
     {
         $this->assertTrue(self::$game->hasCategory('Adventure'));
+        $this->assertTrue(self::$game->hasCategory('adventure'));
         $this->assertTrue(self::$game->hasCategory('Fantasy'));
         $this->assertFalse(self::$game->hasCategory('Dice Rolling'));
         $this->assertFalse(self::$game->hasCategory('Negotiation'));
@@ -165,6 +167,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasMechanics()
     {
         $this->assertTrue(self::$game->hasMechanic('Role Playing'));
+        $this->assertTrue(self::$game->hasMechanic('role playing'));
         $this->assertFalse(self::$game->hasMechanic('Arabian'));
         $this->assertFalse(self::$game->hasMechanic('Hand Management'));
     }
@@ -192,6 +195,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasDesigner()
     {
         $this->assertTrue(self::$game->hasDesigner('Zev Shlasinger'));
+        $this->assertTrue(self::$game->hasDesigner('zev shlasinger'));
         $this->assertFalse(self::$game->hasDesigner('Dan Harding'));
         $this->assertFalse(self::$game->hasDesigner('Russell Ahlstrom'));
     }
@@ -217,6 +221,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasArtist()
     {
         $this->assertTrue(self::$game->hasArtist('Peter Gifford'));
+        $this->assertTrue(self::$game->hasArtist('peter gifford'));
         $this->assertFalse(self::$game->hasArtist('Solitaire Games'));
         $this->assertFalse(self::$game->hasArtist('Russell Ahlstrom'));
     }
@@ -241,6 +246,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasPublisher()
     {
         $this->assertTrue(self::$game->hasPublisher('Z-Man Games'));
+        $this->assertTrue(self::$game->hasPublisher('z-man games'));
         $this->assertFalse(self::$game->hasPublisher('Eric Goldberg'));
         $this->assertFalse(self::$game->hasPublisher('Days of Wonder'));
     }
@@ -265,6 +271,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasFamily()
     {
         $this->assertTrue(self::$game->hasFamily('Solitaire Games'));
+        $this->assertTrue(self::$game->hasFamily('solitaire games'));
         $this->assertFalse(self::$game->hasFamily('Storytelling'));
         $this->assertFalse(self::$game->hasFamily('Kickstarter'));
     }
@@ -300,6 +307,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasExpansion()
     {
         $this->assertTrue(self::$expansion->hasExpansion('Catan: Cities & Knights - 5-6 Player Extension'));
+        $this->assertTrue(self::$expansion->hasExpansion('catan: cities & knights - 5-6 player extension'));
         $this->assertFalse(self::$expansion->hasExpansion('Medieval'));
         $this->assertFalse(self::$expansion->hasExpansion('Catan: Seafarers - 5-6'));
 
@@ -332,6 +340,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasCompilation()
     {
         $this->assertTrue(self::$expansion->hasCompilation('CATAN 3D Collector\'s Edition'));
+        $this->assertTrue(self::$expansion->hasCompilation('catan 3d collector\'s edition'));
         $this->assertFalse(self::$expansion->hasCompilation('Catan: Cities & Knights - 5-6 Player Extension'));
         $this->assertFalse(self::$expansion->hasCompilation('Carcassonne Big Box'));
     }
@@ -362,6 +371,7 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testHasImplementation()
     {
         $this->assertTrue(self::$game->hasImplementation('Tales of the Arabian Nights'));
+        $this->assertTrue(self::$game->hasImplementation('tales of the arabian nights'));
         $this->assertFalse(self::$game->hasImplementation('Dice Rolling'));
         $this->assertFalse(self::$game->hasImplementation('The Settlers of Catan'));
     }
