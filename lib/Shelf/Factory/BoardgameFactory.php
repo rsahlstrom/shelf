@@ -60,7 +60,7 @@ class BoardgameFactory extends AbstractFactory implements FactoryInterface
             $name = array(
                 'value' => (string) $xmlName['value'],
                 'type' => (string) $xmlName['type'],
-                'sort_index' => (int) $xmlName['sortIndex'],
+                'sort_index' => (int) $xmlName['sortindex'],
             );
             $arrayItem['names'][] = $name;
         }
@@ -75,7 +75,7 @@ class BoardgameFactory extends AbstractFactory implements FactoryInterface
                 'value' => (string) $xmlLink['value'],
                 'type' => $type,
             );
-            if (array_key_exists('inbound', $xmlLink)) {
+            if (isset($xmlLink['inbound'])) {
                 $link['inbound'] = (bool) $xmlLink['inbound'];
             }
             $arrayItem['links'][] = $link;
