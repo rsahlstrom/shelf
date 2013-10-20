@@ -5,6 +5,9 @@ namespace Shelf\Entity\Boardgame;
 use Shelf\Entity\AbstractDataEntityCollection;
 use Shelf\Exception\OutOfBoundsException;
 
+/**
+ * A collection of names belonging to a board game
+ */
 class NameCollection extends AbstractDataEntityCollection
 {
     /**
@@ -12,7 +15,7 @@ class NameCollection extends AbstractDataEntityCollection
      */
     public function getChildClass()
     {
-        return 'Shelf\Entity\Boardgame\Name';
+        return 'Shelf\\Entity\\Boardgame\\Name';
     }
 
     /**

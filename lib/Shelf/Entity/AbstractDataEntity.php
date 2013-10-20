@@ -3,15 +3,15 @@
 namespace Shelf\Entity;
 
 use Shelf\Utility\Inflector;
+use Shelf\Exception\BadMethodCallException;
 
 /**
  * Abstract class that has basic getters and setters for accessing data from a
  * protected array
  *
- * If we switch to php 5.4+, then we can convert this to a trait and implement
- * jsonSerialize
+ * If we switch to php 5.4+, then we can implement jsonSerialize
  */
-abstract class AbstractDataEntity implements \Serializable
+abstract class AbstractDataEntity extends AbstractEntity implements \Serializable
 {
     /**
      * An array that holds all of the objects data
@@ -26,14 +26,6 @@ abstract class AbstractDataEntity implements \Serializable
      * @var array
      */
     protected $allowableEmptyKeys = array();
-
-    /**
-     * Returns the inflector used to inflect function names and normalize the data
-     * keys
-     *
-     * @var Inflector
-     */
-    protected $inflector = null;
 
     /**
      * Construct that accepts an array of data and loads it into the object
@@ -59,9 +51,7 @@ abstract class AbstractDataEntity implements \Serializable
     }
 
     /**
-     * Returns the object as an array
-     *
-     * @return array
+     * {@inheritDoc}
      */
     public function toArray()
     {
@@ -78,9 +68,7 @@ abstract class AbstractDataEntity implements \Serializable
     }
 
     /**
-     * Returns an array with all private keys removed
-     *
-     * @return array
+     * {@inheritDoc}
      */
     public function toPublicArray()
     {
@@ -90,26 +78,6 @@ abstract class AbstractDataEntity implements \Serializable
             unset($data[$privateKey]);
         }
         return $data;
-    }
-
-    /**
-     * Returns the object as a json string
-     *
-     * @return string
-     */
-    public function toJson()
-    {
-        return json_encode($this->toArray());
-    }
-
-    /**
-     * Returns the object as a json string with all private keys removed
-     *
-     * @return string
-     */
-    public function toPublicJson()
-    {
-        return json_encode($this->toPublicArray());
     }
 
     /**
@@ -159,7 +127,7 @@ abstract class AbstractDataEntity implements \Serializable
             return $this->get($name);
         } elseif (strpos($method, 'set') === 0) {
             if (!array_key_exists(0, $arguments)) {
-                throw new \InvalidArgumentException('You must pass a value to ' . $method);
+                throw new BadMethodCallException('You must pass a value to ' . $method);
             }
 
             $name = substr($method, 3);
@@ -169,7 +137,7 @@ abstract class AbstractDataEntity implements \Serializable
             return $this->has($name);
         }
 
-        throw new \BadMethodCallException(sprintf('The method %s does not exist in %s!', $method, get_class($this)));
+        throw new BadMethodCallException(sprintf('The method %s does not exist in %s!', $method, get_class($this)));
     }
 
     /**
@@ -230,7 +198,7 @@ abstract class AbstractDataEntity implements \Serializable
     {
         $normalizedName = $this->normalizeDataName($name);
         if (!array_key_exists($normalizedName, $this->data)) {
-            throw new \InvalidArgumentException($name . ' does not exist in the data array!');
+            throw new BadMethodCallException($name . ' does not exist in the data array!');
         }
 
         return $this->data[$normalizedName];
@@ -249,19 +217,6 @@ abstract class AbstractDataEntity implements \Serializable
     }
 
     /**
-     * Returns a function name for a requested string
-     *
-     * @param string $functionName
-     *
-     * @return string
-     */
-    protected function getFunctionName($functionName)
-    {
-        $inflector = $this->getInflector();
-        return lcfirst($inflector->camelcase($functionName));
-    }
-
-    /**
      * Returns the normalized data key for a specified string
      *
      * @param string $name
@@ -272,30 +227,6 @@ abstract class AbstractDataEntity implements \Serializable
     {
         $inflector = $this->getInflector();
         return $inflector->underscore($name);
-    }
-
-    /**
-     * Returns the inflector set on the object
-     *
-     * @return Inflector
-     */
-    protected function getInflector()
-    {
-        if ($this->inflector === null) {
-            $this->inflector = new Inflector();
-        }
-        return $this->inflector;
-    }
-
-    /**
-     * Sets the inflector to be used by the object when converting function names
-     * and normalizing data keys
-     *
-     * @param Inflector $inflector
-     */
-    protected function setInflector(Inflector $inflector)
-    {
-        $this->inflector = $inflector;
     }
 
     /**

@@ -2,11 +2,13 @@
 
 namespace Shelf\Entity;
 
+use Shelf\Exception\BadMethodCallException;
+
 /**
  * Abstract class that makes it easier to work with a collection of abstract data
  * entity objects
  */
-abstract class AbstractDataEntityCollection implements
+abstract class AbstractDataEntityCollection extends AbstractEntity implements
     \IteratorAggregate,
     \ArrayAccess,
     \Countable,
@@ -35,9 +37,76 @@ abstract class AbstractDataEntityCollection implements
     }
 
     /**
-     * Returns the collection as an array
+     * Filters a collection to only contain children that has data matching specific
+     * values
+     *
+     * @param array $filterSets
+     *
+     * @return AbstractDataEntityCollection
+     */
+    public function filterByArray(array $filterSets)
+    {
+        $collection = new static();
+
+        foreach ($this as $child) {
+            $childMatches = true;
+            foreach ($filterSets as $key => $value) {
+                $getter = $this->getFunctionName('get_' . $key);
+                if ($child->$getter() != $value) {
+                    $childMatches = false;
+                    break;
+                }
+            }
+
+            if ($childMatches) {
+                $collection->add($child);
+            }
+        }
+
+        return $collection;
+    }
+
+    /**
+     * Magic method to handle unknown method calls. Currently supports get* and
+     * filterBy*
+     *
+     * @param string $method
+     * @param array $args
+     *
+     * @return mixed
+     */
+    public function __call($method, array $args)
+    {
+        if (strpos($method, 'get') === 0) {
+            return $this->getFromEachChild($method);
+        } elseif (strpos($method, 'filterBy') === 0) {
+            $filterKey = preg_replace('/^filterBy/i', '', $method);
+            return $this->filterByArray(
+                array($filterKey => $args[0])
+            );
+        }
+
+        throw new BadMethodCallException('Unrecognized method "'.$method.'()"');
+    }
+
+    /**
+     * Calls a get method on each child and returns the values as an array
+     *
+     * @param string $method
      *
      * @return array
+     */
+    protected function getFromEachChild($method)
+    {
+        $childValues = array();
+        foreach ($this as $child) {
+            $childValues[] = $child->$method();
+        }
+        return $childValues;
+    }
+
+    /**
+     * {@inheritDoc}
      */
     public function toArray()
     {
@@ -51,9 +120,7 @@ abstract class AbstractDataEntityCollection implements
     }
 
     /**
-     * Returns the collection as a public array
-     *
-     * @return array
+     * {@inheritDoc}
      */
     public function toPublicArray()
     {
@@ -64,26 +131,6 @@ abstract class AbstractDataEntityCollection implements
         }
 
         return $array;
-    }
-
-    /**
-     * Returns the object as a json string
-     *
-     * @return string
-     */
-    public function toJson()
-    {
-        return json_encode($this->toArray());
-    }
-
-    /**
-     * Returns the object as a json string with all private keys removed
-     *
-     * @return string
-     */
-    public function toPublicJson()
-    {
-        return json_encode($this->toPublicArray());
     }
 
     /**

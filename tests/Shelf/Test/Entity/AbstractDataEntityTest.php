@@ -125,7 +125,7 @@ class AbstractDataEntityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException Shelf\Exception\BadMethodCallException
      */
     public function testGetInvalid()
     {
@@ -146,7 +146,7 @@ class AbstractDataEntityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException Shelf\Exception\BadMethodCallException
      */
     public function testSetInvalid()
     {
@@ -166,7 +166,7 @@ class AbstractDataEntityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException BadMethodCallException
+     * @expectedException Shelf\Exception\BadMethodCallException
      */
     public function testBadMagicMethod()
     {

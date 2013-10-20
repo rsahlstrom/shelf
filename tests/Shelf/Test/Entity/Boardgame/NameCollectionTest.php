@@ -67,7 +67,6 @@ class NameCollectionTest extends \PHPUnit_Framework_TestCase
         $nameCollectionNoPrimary->getPrimaryName()->getValue();
     }
 
-
     public function testSortByValue()
     {
         $this->nameCollection->sortByValue();

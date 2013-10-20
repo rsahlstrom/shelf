@@ -30,7 +30,7 @@ class BoardgameFactory extends AbstractFactory implements FactoryInterface
      */
     public static function fromArray(array $itemRow)
     {
-        return static::processBoardgame($itemRow);
+        return new Boardgame($itemRow);
     }
 
     /**
@@ -67,46 +67,22 @@ class BoardgameFactory extends AbstractFactory implements FactoryInterface
 
         $arrayItem['links'] = array();
         foreach ($xmlItem->link as $xmlLink) {
-            $name = array(
-                'id' => (string) $xmlLink['id'],
-                'value' => (int) $xmlLink['value'],
-                'type' => (string) $xmlLink['type'],
+            $type = (string) $xmlLink['type'];
+            $type = preg_replace('/^boardgame/', '', $type);
+
+            $link = array(
+                'id' => (int) $xmlLink['id'],
+                'value' => (string) $xmlLink['value'],
+                'type' => $type,
             );
-            $arrayItem['links'][] = $name;
-        }
-
-        return $arrayItem;
-    }
-
-    /**
-     * Process a single game from the xml response
-     *
-     * @param array $gameRow
-     *
-     * @return Boardgame
-     */
-    protected static function processBoardgame(array $gameRow)
-    {
-        if (array_key_exists('links', $gameRow)) {
-            $linksByType = array();
-            foreach ($gameRow['links'] as $link) {
-                $type = $link['type'];
-
-                if (!array_key_exists($type, $linksByType)) {
-                    $linksByType[$type] = array();
-                }
-
-                $linksByType[$type][$link['id']] = $link['value'];
+            if (array_key_exists('inbound', $xmlLink)) {
+                $link['inbound'] = (bool) $xmlLink['inbound'];
             }
-
-            foreach ($linksByType as $type => $links) {
-                $type = preg_replace('/^boardgame/', '', $type);
-                $gameRow[$type] = $links;
-            }
+            $arrayItem['links'][] = $link;
         }
 
         //@TODO: Add support for polls
 
-        return new Boardgame($gameRow);
+        return $arrayItem;
     }
 }

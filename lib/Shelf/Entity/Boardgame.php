@@ -2,6 +2,7 @@
 
 namespace Shelf\Entity;
 
+use Shelf\Entity\Boardgame\LinkCollection;
 use Shelf\Entity\Boardgame\NameCollection;
 use Shelf\Factory\BoardgameFactory;
 
@@ -17,6 +18,13 @@ class Boardgame extends AbstractDataEntity
      * @var NameCollection
      */
     protected $nameCollection = null;
+
+    /**
+     * Collection of links
+     *
+     * @var LinkCollection
+     */
+    protected $linkCollection = null;
 
     /**
      * Returns a collection of board game names
@@ -76,6 +84,100 @@ class Boardgame extends AbstractDataEntity
     public function isExpansion()
     {
         return $this->getType() == 'boardgameexpansion';
+    }
+
+    /**
+     * Returns the links associated with a boardgame
+     *
+     * @return LinkCollection
+     */
+    public function getLinks()
+    {
+        if ($this->linkCollection === null) {
+            $this->linkCollection = LinkCollection::factory(parent::getLinks());
+        }
+
+        return $this->linkCollection;
+    }
+
+    /**
+     * Returns a collection of categories associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getCategories()
+    {
+        return $this->getLinks()->getCategories();
+    }
+
+    /**
+     * Returns a collection of mechanics associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getMechanics()
+    {
+        return $this->getLinks()->getMechanics();
+    }
+
+    /**
+     * Returns a collection of designers associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getDesigners()
+    {
+        return $this->getLinks()->getDesigners();
+    }
+
+    /**
+     * Returns a collection of artists associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getArtists()
+    {
+        return $this->getLinks()->getArtists();
+    }
+
+    /**
+     * Returns a collection of publishers associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getPublishers()
+    {
+        return $this->getLinks()->getPublishers();
+    }
+
+    /**
+     * Returns a collection of families associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getFamilies()
+    {
+        return $this->getLinks()->getFamilies();
+    }
+
+    /**
+     * Returns a collection of expansions associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getExpansions()
+    {
+        return $this->getLinks()->getExpansions();
+    }
+
+    /**
+     * Returns a collection of implementations associated with a game
+     *
+     * @return LinkCollection
+     */
+    public function getImplementations()
+    {
+        return $this->getLinks()->getImplementations();
     }
 
     /**
