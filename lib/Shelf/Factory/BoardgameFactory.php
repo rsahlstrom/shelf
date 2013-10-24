@@ -81,7 +81,39 @@ class BoardgameFactory extends AbstractFactory implements FactoryInterface
             $arrayItem['links'][] = $link;
         }
 
-        //@TODO: Add support for polls
+        $arrayItem['polls'] = array();
+        foreach ($xmlItem->poll as $xmlPoll) {
+            $poll = array(
+                'name' => (string) $xmlPoll['name'],
+                'title' => (string) $xmlPoll['title'],
+                'total_votes' => (int) $xmlPoll['totalvotes'],
+            );
+
+            $resultsCollection = array();
+            foreach ($xmlPoll->results as $xmlResults) {
+                $results = array(
+                    'options' => array(),
+                );
+                if (isset($xmlResults['numplayers'])) {
+                    $results['num_players'] = (string) $xmlResults['numplayers'];
+                }
+
+                foreach ($xmlResults->result as $xmlOption) {
+                    $result = array(
+                        'value' => (string) $xmlOption['value'],
+                        'num_votes' => (int) $xmlOption['numvotes'],
+                    );
+                    if (isset($xmlOption['level'])) {
+                        $result['level'] = (int) $xmlOption['level'];
+                    }
+                    $results['options'][] = $result;
+                }
+                $resultsCollection[] = $results;
+            }
+            $poll['results'] = $resultsCollection;
+
+            $arrayItem['polls'][] = $poll;
+        }
 
         return $arrayItem;
     }

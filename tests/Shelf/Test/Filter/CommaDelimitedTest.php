@@ -9,12 +9,12 @@ class CommaDelimitedTest extends \PHPUnit_Framework_TestCase
     public function testImplode()
     {
         $array = array('1', '2', '3');
-        $this->assertEquals(implode(',', $array), CommaDelimited::implode($array));
+        $this->assertSame(implode(',', $array), CommaDelimited::implode($array));
     }
 
     public function testExplode()
     {
         $string = '1,2,3';
-        $this->assertEquals(explode(',', $string), CommaDelimited::explode($string));
+        $this->assertSame(explode(',', $string), CommaDelimited::explode($string));
     }
 }

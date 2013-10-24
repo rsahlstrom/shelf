@@ -154,8 +154,231 @@ Re-implements:
                     'type' => 'publisher',
                 ),
             ),
+            'polls' => array(
+                array(
+                    'name' => 'suggested_numplayers',
+                    'title' => 'User Suggested Number of Players',
+                    'total_votes' => 121,
+                    'results' => array(
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'Best',
+                                    'num_votes' => 2,
+                                ),
+                                array(
+                                    'value' => 'Recommended',
+                                    'num_votes' => 22,
+                                ),
+                                array(
+                                    'value' => 'Not Recommended',
+                                    'num_votes' => 55,
+                                ),
+                            ),
+                            'num_players' => '1',
+                        ),
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'Best',
+                                    'num_votes' => 24,
+                                ),
+                                array(
+                                    'value' => 'Recommended',
+                                    'num_votes' => 70,
+                                ),
+                                array(
+                                    'value' => 'Not Recommended',
+                                    'num_votes' => 13,
+                                ),
+                            ),
+                            'num_players' => '2',
+                        ),
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'Best',
+                                    'num_votes' => 85,
+                                ),
+                                array(
+                                    'value' => 'Recommended',
+                                    'num_votes' => 26,
+                                ),
+                                array(
+                                    'value' => 'Not Recommended',
+                                    'num_votes' => 1,
+                                ),
+                            ),
+                            'num_players' => '3',
+                        ),
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'Best',
+                                    'num_votes' => 18,
+                                ),
+                                array(
+                                    'value' => 'Recommended',
+                                    'num_votes' => 75,
+                                ),
+                                array(
+                                    'value' => 'Not Recommended',
+                                    'num_votes' => 12,
+                                ),
+                            ),
+                            'num_players' => '4',
+                        ),
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'Best',
+                                    'num_votes' => 2,
+                                ),
+                                array(
+                                    'value' => 'Recommended',
+                                    'num_votes' => 26,
+                                ),
+                                array(
+                                    'value' => 'Not Recommended',
+                                    'num_votes' => 70,
+                                ),
+                            ),
+                            'num_players' => '5',
+                        ),
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'Best',
+                                    'num_votes' => 2,
+                                ),
+                                array(
+                                    'value' => 'Recommended',
+                                    'num_votes' => 9,
+                                ),
+                                array(
+                                    'value' => 'Not Recommended',
+                                    'num_votes' => 82,
+                                ),
+                            ),
+                            'num_players' => '6',
+                        ),
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'Best',
+                                    'num_votes' => 0,
+                                ),
+                                array(
+                                    'value' => 'Recommended',
+                                    'num_votes' => 0,
+                                ),
+                                array(
+                                    'value' => 'Not Recommended',
+                                    'num_votes' => 77,
+                                ),
+                            ),
+                            'num_players' => '6+',
+                        ),
+                    ),
+                ),
+                array(
+                    'name' => 'suggested_playerage',
+                    'title' => 'User Suggested Player Age',
+                    'total_votes' => 41,
+                    'results' => array(
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => '2',
+                                    'num_votes' => 0,
+                                ),
+                                array(
+                                    'value' => '3',
+                                    'num_votes' => 0,
+                                ),
+                                array(
+                                    'value' => '4',
+                                    'num_votes' => 0,
+                                ),
+                                array(
+                                    'value' => '5',
+                                    'num_votes' => 0,
+                                ),
+                                array(
+                                    'value' => '6',
+                                    'num_votes' => 1,
+                                ),
+                                array(
+                                    'value' => '8',
+                                    'num_votes' => 4,
+                                ),
+                                array(
+                                    'value' => '10',
+                                    'num_votes' => 9,
+                                ),
+                                array(
+                                    'value' => '12',
+                                    'num_votes' => 20,
+                                ),
+                                array(
+                                    'value' => '14',
+                                    'num_votes' => 4,
+                                ),
+                                array(
+                                    'value' => '16',
+                                    'num_votes' => 3,
+                                ),
+                                array(
+                                    'value' => '18',
+                                    'num_votes' => 0,
+                                ),
+                                array(
+                                    'value' => '21 and up',
+                                    'num_votes' => 0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                array(
+                    'name' => 'language_dependence',
+                    'title' => 'Language Dependence',
+                    'total_votes' => 92,
+                    'results' => array(
+                        array(
+                            'options' => array(
+                                array(
+                                    'value' => 'No necessary in-game text',
+                                    'num_votes' => 0,
+                                    'level' => 1,
+                                ),
+                                array(
+                                    'value' => 'Some necessary text - easily memorized or small crib sheet',
+                                    'num_votes' => 0,
+                                    'level' => 2,
+                                ),
+                                array(
+                                    'value' => 'Moderate in-game text - needs crib sheet or paste ups',
+                                    'num_votes' => 0,
+                                    'level' => 3,
+                                ),
+                                array(
+                                    'value' => 'Extensive use of text - massive conversion needed to be playable',
+                                    'num_votes' => 56,
+                                    'level' => 4,
+                                ),
+                                array(
+                                    'value' => 'Unplayable in another language',
+                                    'num_votes' => 36,
+                                    'level' => 5,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
         );
 
-        $this->assertEquals($expectedArray, $itemArray);
+        $this->assertSame($expectedArray, $itemArray);
     }
 }
