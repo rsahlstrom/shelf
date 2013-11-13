@@ -4,6 +4,7 @@ namespace Shelf\Entity;
 
 use Shelf\Entity\Boardgame\LinkCollection;
 use Shelf\Entity\Boardgame\NameCollection;
+use Shelf\Entity\Boardgame\PollCollection;
 use Shelf\Factory\BoardgameFactory;
 
 /**
@@ -13,6 +14,13 @@ use Shelf\Factory\BoardgameFactory;
 class Boardgame extends AbstractDataEntity
 {
     /**
+     * Collection of links
+     *
+     * @var LinkCollection
+     */
+    protected $linkCollection = null;
+
+    /**
      * Collection of names
      *
      * @var NameCollection
@@ -20,11 +28,11 @@ class Boardgame extends AbstractDataEntity
     protected $nameCollection = null;
 
     /**
-     * Collection of links
+     * Collection of polls
      *
-     * @var LinkCollection
+     * @var PollCollection
      */
-    protected $linkCollection = null;
+    protected $pollCollection = null;
 
     /**
      * Returns a collection of board game names
@@ -361,6 +369,50 @@ class Boardgame extends AbstractDataEntity
     {
         $links = $this->getImplementations()->filterByValue($value);
         return count($links) > 0;
+    }
+
+    /**
+     * Returns the polls associated with a boardgame
+     *
+     * @return PollCollection
+     */
+    public function getPolls()
+    {
+        if ($this->pollCollection === null) {
+            $this->pollCollection = PollCollection::factory(parent::getPolls());
+        }
+
+        return $this->pollCollection;
+    }
+
+    /**
+     * Returns the SuggestedNumPlayers Poll
+     *
+     * @return Poll
+     */
+    public function getSuggestedNumPlayersPoll()
+    {
+        return $this->getPolls()->getSuggestedNumPlayersPoll();
+    }
+
+    /**
+     * Returns the SuggestedPlayerAge Poll
+     *
+     * @return Poll
+     */
+    public function getSuggestedPlayerAgePoll()
+    {
+        return $this->getPolls()->getSuggestedPlayerAgePoll();
+    }
+
+    /**
+     * Returns the LanguageDependence Poll
+     *
+     * @return Poll
+     */
+    public function getLanguageDependencePoll()
+    {
+        return $this->getPolls()->getLanguageDependencePoll();
     }
 
     /**

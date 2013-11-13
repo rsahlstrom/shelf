@@ -375,4 +375,32 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(self::$game->hasImplementation('Dice Rolling'));
         $this->assertFalse(self::$game->hasImplementation('The Settlers of Catan'));
     }
+
+    public function testGetPolls()
+    {
+        $pollCollection = self::$game->getPolls();
+
+        $this->assertInstanceOf(
+            'Shelf\\Entity\\Boardgame\\PollCollection',
+            $pollCollection
+        );
+    }
+
+    public function testGetSuggestedNumPlayersPoll()
+    {
+        $poll = self::$game->getSuggestedNumPlayersPoll();
+        $this->assertEquals('suggested_numplayers', $poll->getName());
+    }
+
+    public function testGetSuggestedPlayerAgePoll()
+    {
+        $poll = self::$game->getSuggestedPlayerAgePoll();
+        $this->assertEquals('suggested_playerage', $poll->getName());
+    }
+
+    public function testGetLanguageDependencePoll()
+    {
+        $poll = self::$game->getLanguageDependencePoll();
+        $this->assertEquals('language_dependence', $poll->getName());
+    }
 }
