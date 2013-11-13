@@ -25,13 +25,7 @@ class NameCollection extends AbstractDataEntityCollection
      */
     public function getPrimaryName()
     {
-        foreach ($this as $name) {
-            if ($name->isPrimary()) {
-                return $name;
-            }
-        }
-
-        throw new OutOfBoundsException('No Primary Name Found!');
+        return $this->findByIsPrimary(true);
     }
 
     /**

@@ -113,6 +113,75 @@ class AbstractDataEntityCollectionTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testFindByArray()
+    {
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'first child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'second child', 'type' => 'wargame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'third child', 'type' => 'boardgame', 'fun' => false)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'fourth child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+
+        $this->assertEquals(
+            'first child',
+            $this->entity->findByArray(
+                array(
+                    'type' => 'boardgame',
+                    'fun' => true
+                )
+            )->getName()
+        );
+    }
+
+    public function testFindByArrayCaseSensitive()
+    {
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'first child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'second child', 'type' => 'wargame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'third child', 'type' => 'boardgame', 'fun' => false)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'fourth child', 'type' => 'Boardgame', 'fun' => true)
+            )
+        );
+
+        $this->assertEquals(
+            'fourth child',
+            $this->entity->findByArray(
+                array(
+                    'type' => 'Boardgame',
+                    'fun' => true
+                ),
+                true
+            )->getName()
+        );
+    }
+
     public function testGetNamesMagicMethod()
     {
         $this->entity->add(
@@ -169,6 +238,42 @@ class AbstractDataEntityCollectionTest extends \PHPUnit_Framework_TestCase
                 'first child',
             ),
             $this->entity->filterByType('boardgame', true)->getName()
+        );
+    }
+
+    public function testFindByTypeMagicMethod()
+    {
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'first child', 'type' => 'boardgame'))
+        );
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'second child', 'type' => 'wargame'))
+        );
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'third child', 'type' => 'boardgame'))
+        );
+
+        $this->assertEquals(
+            'first child',
+            $this->entity->findByType('boardgame')->getName()
+        );
+    }
+
+    public function testFindByTypeMagicMethodCaseSensitive()
+    {
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'first child', 'type' => 'boardgame'))
+        );
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'second child', 'type' => 'wargame'))
+        );
+        $this->entity->add(
+            Boardgame::factory(array('name' => 'third child', 'type' => 'Boardgame'))
+        );
+
+        $this->assertEquals(
+            'third child',
+            $this->entity->findByType('Boardgame', true)->getName()
         );
     }
 
@@ -315,5 +420,57 @@ class AbstractDataEntityCollectionTest extends \PHPUnit_Framework_TestCase
         $this->entity->add($this->getChild(), 'agricola');
 
         $this->assertCount(2, $this->entity);
+    }
+
+    public function testFirst()
+    {
+        $child1 = Boardgame::factory(array('name' => 'child1'));
+        $child2 = Boardgame::factory(array('name' => 'child2'));
+        $child3 = Boardgame::factory(array('name' => 'child3'));
+
+        $this->entity->add($child1);
+        $this->entity->add($child2);
+        $this->entity->add($child3);
+
+        $this->assertSame($child1, $this->entity->first());
+    }
+
+    public function testFirstKeys()
+    {
+        $child1 = Boardgame::factory(array('name' => 'child1'));
+        $child2 = Boardgame::factory(array('name' => 'child2'));
+        $child3 = Boardgame::factory(array('name' => 'child3'));
+
+        $this->entity->add($child1, 'a');
+        $this->entity->add($child2, 'aa');
+        $this->entity->add($child3, 'aaa');
+
+        $this->assertSame($child1, $this->entity->first());
+    }
+
+    public function testLast()
+    {
+        $child1 = Boardgame::factory(array('name' => 'child1'));
+        $child2 = Boardgame::factory(array('name' => 'child2'));
+        $child3 = Boardgame::factory(array('name' => 'child3'));
+
+        $this->entity->add($child1);
+        $this->entity->add($child2);
+        $this->entity->add($child3);
+
+        $this->assertSame($child3, $this->entity->last());
+    }
+
+    public function testLastKeys()
+    {
+        $child1 = Boardgame::factory(array('name' => 'child1'));
+        $child2 = Boardgame::factory(array('name' => 'child2'));
+        $child3 = Boardgame::factory(array('name' => 'child3'));
+
+        $this->entity->add($child1, 'z');
+        $this->entity->add($child2, 'zz');
+        $this->entity->add($child3, 'a');
+
+        $this->assertSame($child3, $this->entity->last());
     }
 }

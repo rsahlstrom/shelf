@@ -3,6 +3,7 @@
 namespace Shelf\Entity;
 
 use Shelf\Exception\BadMethodCallException;
+use Shelf\Exception\OutOfBoundsException;
 
 /**
  * Abstract class that makes it easier to work with a collection of abstract data
@@ -49,10 +50,15 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
     {
         $collection = new static();
 
+        $methods = get_class_methods($this->getChildClass());
+
         foreach ($this as $child) {
             $childMatches = true;
             foreach ($filterSets as $key => $value) {
-                $getter = $this->getFunctionName('get_' . $key);
+                $getter = $this->getFunctionName($key);
+                if (!in_array($getter, $methods)) {
+                    $getter = $this->getFunctionName('get_' . $key);
+                }
                 $childValue = $child->$getter();
 
                 if (!$caseSensitive) {
@@ -72,6 +78,54 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
         }
 
         return $collection;
+    }
+
+    /**
+     * Finds the first child that has data matching specific values
+     *
+     * @param array $findSets
+     * @param boolean $caseSensitive OPTIONAL
+     *
+     * @return AbstractDataEntity
+     *
+     * @throws OutOfBoundsException if no matching child is found
+     */
+    public function findByArray(array $findSets, $caseSensitive = false)
+    {
+        $foundChild = null;
+        $methods = get_class_methods($this->getChildClass());
+
+        foreach ($this as $child) {
+            $childMatches = true;
+            foreach ($findSets as $key => $value) {
+                $getter = $this->getFunctionName($key);
+                if (!in_array($getter, $methods)) {
+                    $getter = $this->getFunctionName('get_' . $key);
+                }
+                $childValue = $child->$getter();
+
+                if (!$caseSensitive) {
+                    $value = strtolower($value);
+                    $childValue = strtolower($childValue);
+                }
+
+                if ($childValue != $value) {
+                    $childMatches = false;
+                    break;
+                }
+            }
+
+            if ($childMatches) {
+                $foundChild = $child;
+                break;
+            }
+        }
+
+        if ($foundChild === null) {
+            throw new OutOfBoundsException('No matching child found!');
+        }
+
+        return $foundChild;
     }
 
     /**
@@ -95,6 +149,16 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
             }
             return $this->filterByArray(
                 array($filterKey => $args[0]),
+                $caseSensitive
+            );
+        } elseif (strpos($method, 'findBy') === 0) {
+            $findKey = preg_replace('/^findBy/i', '', $method);
+            $caseSensitive = false;
+            if (isset($args[1])) {
+                $caseSensitive = $args[1];
+            }
+            return $this->findByArray(
+                array($findKey => $args[0]),
                 $caseSensitive
             );
         }
@@ -260,5 +324,27 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
     public function count()
     {
         return count($this->children);
+    }
+
+    /**
+     * Returns the first child in the collection
+     *
+     * @return AbstractDataEntity
+     */
+    public function first()
+    {
+        return reset($this->children);
+    }
+
+    /**
+     * Returns the last child in the collection
+     *
+     * @return AbstractDataEntity
+     */
+    public function last()
+    {
+        $last = end($this->children);
+        reset($this->children);
+        return $last;
     }
 }
