@@ -9,8 +9,7 @@ class BoardgameFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testFromBggXml()
     {
-        $fixtureDir = __DIR__ . '/../Fixture/Thing';
-        $xmlGame = simplexml_load_file($fixtureDir . '/arabianBasic.xml');
+        $xmlGame = simplexml_load_file(FIXTURE_DIR . '/Thing/arabianBasic.xml');
 
         $boardgame = BoardgameFactory::fromBggXml($xmlGame->item[0]);
 
@@ -34,8 +33,7 @@ class BoardgameFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testConvertXmlItem()
     {
-        $fixtureDir = __DIR__ . '/../Fixture/Thing';
-        $xmlGame = simplexml_load_file($fixtureDir . '/arabianBasic.xml');
+        $xmlGame = simplexml_load_file(FIXTURE_DIR . '/Thing/arabianBasic.xml');
 
         $itemArray = BoardgameFactory::convertXmlItem($xmlGame->item[0]);
         $expectedArray = array(

@@ -1,0 +1,135 @@
+{
+    "name": "Board Game Geek XML API - Thing",
+    "operations": {
+        "thing": {
+            "httpMethod": "GET",
+            "uri": "thing",
+            "summary": "Returns information about a specific thing along with optional additional data",
+            "responseClass": "Shelf\\Response\\ThingCollection",
+            "parameters": {
+                "id": {
+                    "location": "query",
+                    "description": "Id or an array of ids of the thing to retrieve.",
+                    "required": true,
+                    "type": ["integer", "array"],
+                    "items": {
+                        "type": "integer"
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "type": {
+                    "location": "query",
+                    "description": "Type of thing to filter by",
+                    "type": ["string", "array"],
+                    "enum": [
+                        "boardgame",
+                        "boardgameexpansion",
+                        "videogame",
+                        "rpgitem",
+                        "rpgissue"
+                    ],
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "boardgame",
+                            "boardgameexpansion",
+                            "videogame",
+                            "rpgitem",
+                            "rpgissue"
+                        ]
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "versions": {
+                    "location": "query",
+                    "description": "Include version info for the item",
+                    "type": "boolean"
+                },
+                "videos": {
+                    "location": "query",
+                    "description": "Include videos for the item",
+                    "type": "boolean"
+                },
+                "stats": {
+                    "location": "query",
+                    "description": "Include ranking and rating stats for the item",
+                    "type": "boolean"
+                },
+                "historical": {
+                    "location": "query",
+                    "description": "Include historical data over time",
+                    "type": "boolean"
+                },
+                "marketplace": {
+                    "location": "query",
+                    "description": "Include marketplace data for the item",
+                    "type": "boolean"
+                },
+                "comments": {
+                    "location": "query",
+                    "description": "Include comments for the item",
+                    "type": "boolean"
+                },
+                "ratingcomments": {
+                    "location": "query",
+                    "description": "Include ratings for the item",
+                    "type": "boolean"
+                },
+                "page": {
+                    "location": "query",
+                    "description": "Controls the page data to see for historical info, comments, and ratings data.",
+                    "type": "integer"
+                },
+                "pagesize": {
+                    "location": "query",
+                    "description": "Number of records to include in each page",
+                    "type": "integer",
+                    "minimum": 10,
+                    "maximum": 100
+                }
+            }
+        },
+        "getBoardgame": {
+            "extends": "thing",
+            "responseClass": "Shelf\\Response\\Boardgame",
+            "parameters": {
+                "id": {
+                    "location": "query",
+                    "description": "Id of the boardgame to retrieve.",
+                    "required": true,
+                    "type": "integer"
+                },
+                "type": {
+                    "location": "query",
+                    "description": "Type of thing to filter by",
+                    "type": "string",
+                    "default": "boardgame,boardgameexpansion",
+                    "static": true
+                }
+            }
+        },
+        "getBoardgames": {
+            "extends": "thing",
+            "responseClass": "Shelf\\Response\\Boardgames",
+            "parameters": {
+                "id": {
+                    "location": "query",
+                    "description": "An array of ids of the boardgames to retrieve.",
+                    "required": true,
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "type": {
+                    "location": "query",
+                    "description": "Type of thing to filter by",
+                    "type": "string",
+                    "default": "boardgame,boardgameexpansion",
+                    "static": true
+                }
+            }
+        }
+    }
+}

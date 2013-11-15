@@ -11,12 +11,10 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $fixtureDir = __DIR__ . '/../Fixture/Thing';
-
-        $xmlGame = simplexml_load_file($fixtureDir . '/arabianBasic.xml');
+        $xmlGame = simplexml_load_file(FIXTURE_DIR . '/Thing/arabianBasic.xml');
         self::$game = BoardgameFactory::fromBggXml($xmlGame->item[0]);
 
-        $xmlExpansion = simplexml_load_file($fixtureDir . '/catanCitiesAndKnightsBasic.xml');
+        $xmlExpansion = simplexml_load_file(FIXTURE_DIR . '/Thing/catanCitiesAndKnightsBasic.xml');
         self::$expansion = BoardgameFactory::fromBggXml($xmlExpansion->item[0]);
     }
 
