@@ -5,7 +5,7 @@ namespace Shelf\Response;
 use Shelf\Factory\BoardgameFactory;
 
 /**
- * Boardgame class to handle responses from the api endpoint with a type of
+ * Boardgame class to handle responses from the thing api endpoint with a type of
  * boardgame or boardgameexpansion
  */
 class Boardgame extends AbstractResponse

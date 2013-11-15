@@ -11,9 +11,7 @@ class BoardgameCollectionTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $fixtureDir = __DIR__ . '/../Fixture/Thing';
-
-        $xmlGame = simplexml_load_file($fixtureDir . '/TierCatanArabianBasic.xml');
+        $xmlGame = simplexml_load_file(FIXTURE_DIR . '/Thing/TierCatanArabianBasic.xml');
         self::$games = BoardgameCollectionFactory::fromBggXml($xmlGame);
     }
 

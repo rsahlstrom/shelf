@@ -1,0 +1,265 @@
+{
+    "name": "Board Game Geek XML API - Collection",
+    "operations": {
+        "collection": {
+            "httpMethod": "GET",
+            "uri": "collection",
+            "summary": "Returns details about a user's collection",
+            "responseClass": "Shelf\\Response\\Collection",
+            "parameters": {
+                "username": {
+                    "location": "query",
+                    "description": "Name of the user to request the collection for.",
+                    "required": true,
+                    "type": "string"
+                },
+                "version": {
+                    "location": "query",
+                    "description": "Returns version info for each item in your collection.",
+                    "type": "boolean"
+                },
+                "subtype": {
+                    "location": "query",
+                    "description": "Specifies which collection you want to retrieve. TYPE may be boardgame, boardgameexpansion, rpgitem, videogame; the default is boardgame",
+                    "type": ["string", "array"],
+                    "enum": [
+                        "boardgame",
+                        "boardgameexpansion",
+                        "videogame",
+                        "rpgitem",
+                        "rpgissue"
+                    ],
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "boardgame",
+                            "boardgameexpansion",
+                            "videogame",
+                            "rpgitem",
+                            "rpgissue"
+                        ]
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "excludesubtype": {
+                    "location": "query",
+                    "description": "Specifies which collection you want to retrieve. TYPE may be boardgame, boardgameexpansion, rpgitem, videogame; the default is boardgame",
+                    "type": ["string", "array"],
+                    "enum": [
+                        "boardgame",
+                        "boardgameexpansion",
+                        "videogame",
+                        "rpgitem",
+                        "rpgissue"
+                    ],
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "boardgame",
+                            "boardgameexpansion",
+                            "videogame",
+                            "rpgitem",
+                            "rpgissue"
+                        ]
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "id": {
+                    "location": "query",
+                    "description": "Filter collection to specifically listed item(s). NNN may be a comma-delimited list of item ids.",
+                    "type": ["integer", "array"],
+                    "items": {
+                        "type": "integer"
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "brief": {
+                    "location": "query",
+                    "description": "Returns more abbreviated results.",
+                    "type": "boolean"
+                },
+                "stats": {
+                    "location": "query",
+                    "description": "Returns expanded rating/ranking info for the collection.",
+                    "type": "boolean"
+                },
+                "own": {
+                    "location": "query",
+                    "description": "Filter for owned games. Set to 0 to exclude these items so marked. Set to 1 for returning owned games and 0 for non-owned games.",
+                    "type": "boolean"
+                },
+                "rated": {
+                    "location": "query",
+                    "description": "Filter for whether an item has been rated. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "played": {
+                    "location": "query",
+                    "description": "Filter for whether an item has been played. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "comment": {
+                    "location": "query",
+                    "description": "Filter for items that have been commented. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "trade": {
+                    "location": "query",
+                    "description": "Filter for items marked for trade. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "want": {
+                    "location": "query",
+                    "description": "Filter for items wanted in trade. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "wishlist": {
+                    "location": "query",
+                    "description": "Filter for items on the wishlist. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "wishlistpriority": {
+                    "location": "query",
+                    "description": "Filter for wishlist priority. Returns only items of the specified priority.",
+                    "type": "integer"
+                },
+                "wanttoplay": {
+                    "location": "query",
+                    "description": "Filter for items marked as wanting to play. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "wanttobuy": {
+                    "location": "query",
+                    "description": "Filter for items marked as wanting to buy. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "prevowned": {
+                    "location": "query",
+                    "description": "Filter for games marked previously owned. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "hasparts": {
+                    "location": "query",
+                    "description": "Filter on whether there is a comment in the Has Parts field of the item. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "wantparts": {
+                    "location": "query",
+                    "description": "Filter on whether there is a comment in the Wants Parts field of the item. Set to 0 to exclude these items so marked. Set to 1 to include only these items so marked.",
+                    "type": "boolean"
+                },
+                "minrating": {
+                    "location": "query",
+                    "description": "Filter on minimum personal rating assigned for that item in the collection.",
+                    "type": "integer"
+                },
+                "maxrating": {
+                    "location": "query",
+                    "description": "Filter on maximum personal rating assigned for that item in the collection.",
+                    "type": "integer"
+                },
+                "minbggrating": {
+                    "location": "query",
+                    "description": "Filter on minimum BGG rating for that item in the collection.",
+                    "type": "integer"
+                },
+                "maxbggrating": {
+                    "location": "query",
+                    "description": "Filter on maximum BGG rating for that item in the collection.",
+                    "type": "integer"
+                },
+                "minplays": {
+                    "location": "query",
+                    "description": "Filter by minimum number of recorded plays.",
+                    "type": "integer"
+                },
+                "maxplays": {
+                    "location": "query",
+                    "description": "Filter by maximum number of recorded plays.",
+                    "type": "integer"
+                },
+                "showprivate": {
+                    "location": "query",
+                    "description": "Filter to show private collection info. Only works when viewing your own collection and you are logged in.",
+                    "type": "boolean"
+                },
+                "collid": {
+                    "location": "query",
+                    "description": "Restrict the collection results to the single specified collection id. Collid is returned in the results of normal queries as well.",
+                    "type": "integer"
+                },
+                "modifiedsince": {
+                    "location": "query",
+                    "description": "Restricts the collection results to only those whose status (own, want, fortrade, etc.) has changed or been added since the date specified (does not return results for deletions). Time may be added as well: modifiedsince=YY-MM-DD%20HH:MM:SS",
+                    "type": "integer"
+                }
+            }
+        },
+        "getCollection": {
+            "extends": "collection",
+            "parameters": {
+                "own": {
+                    "location": "query",
+                    "type": "boolean",
+                    "default": true,
+                    "static": true
+                }
+            }
+        },
+        "getWishlist": {
+            "extends": "collection",
+            "parameters": {
+                "wishlist": {
+                    "location": "query",
+                    "type": "boolean",
+                    "default": true,
+                    "static": true
+                }
+            }
+        },
+        "getRated": {
+            "extends": "collection",
+            "parameters": {
+                "rated": {
+                    "location": "query",
+                    "type": "boolean",
+                    "default": true,
+                    "static": true
+                }
+            }
+        },
+        "getPlayed": {
+            "extends": "collection",
+            "parameters": {
+                "played": {
+                    "location": "query",
+                    "type": "boolean",
+                    "default": true,
+                    "static": true
+                }
+            }
+        },
+        "getTrading": {
+            "extends": "collection",
+            "parameters": {
+                "trade": {
+                    "location": "query",
+                    "type": "boolean",
+                    "default": true,
+                    "static": true
+                }
+            }
+        },
+        "getPreviouslyOwned": {
+            "extends": "collection",
+            "parameters": {
+                "prevowned": {
+                    "location": "query",
+                    "type": "boolean",
+                    "default": true,
+                    "static": true
+                }
+            }
+        }
+    }
+}

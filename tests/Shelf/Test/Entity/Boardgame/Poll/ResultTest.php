@@ -10,9 +10,7 @@ class ResultTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        $fixtureDir = __DIR__ . '/../../../Fixture/Thing';
-
-        $xmlGame = simplexml_load_file($fixtureDir . '/arabianBasic.xml');
+        $xmlGame = simplexml_load_file(FIXTURE_DIR . '/Thing/arabianBasic.xml');
         $game = BoardgameFactory::fromBggXml($xmlGame->item[0]);
 
         self::$result = $game->getSuggestedPlayerAgePoll()->getResults()->first();
