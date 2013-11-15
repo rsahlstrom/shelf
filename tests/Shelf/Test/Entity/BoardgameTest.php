@@ -389,18 +389,51 @@ class BoardgameTest extends \PHPUnit_Framework_TestCase
     public function testGetSuggestedNumPlayersPoll()
     {
         $poll = self::$game->getSuggestedNumPlayersPoll();
+
+        $this->assertInstanceOf(
+            'Shelf\\Entity\\Boardgame\\Poll\\SuggestedNumPlayersPoll',
+            $poll
+        );
         $this->assertEquals('suggested_numplayers', $poll->getName());
+    }
+
+    public function testGetSuggestedNumPlayers()
+    {
+        $suggestedPlayers = self::$game->getSuggestedNumPlayers();
+        $this->assertEquals('3', $suggestedPlayers->getValue());
     }
 
     public function testGetSuggestedPlayerAgePoll()
     {
         $poll = self::$game->getSuggestedPlayerAgePoll();
+
+        $this->assertInstanceOf(
+            'Shelf\\Entity\\Boardgame\\Poll\\SuggestedPlayerAgePoll',
+            $poll
+        );
         $this->assertEquals('suggested_playerage', $poll->getName());
+    }
+
+    public function testGetSuggestedPlayerAge()
+    {
+        $suggestedPlayerAge = self::$game->getSuggestedPlayerAge();
+        $this->assertEquals('12', $suggestedPlayerAge->getValue());
     }
 
     public function testGetLanguageDependencePoll()
     {
         $poll = self::$game->getLanguageDependencePoll();
+
+        $this->assertInstanceOf(
+            'Shelf\\Entity\\Boardgame\\Poll\\LanguageDependencePoll',
+            $poll
+        );
         $this->assertEquals('language_dependence', $poll->getName());
+    }
+
+    public function testGetLanguageDependence()
+    {
+        $languageDependence = self::$game->getLanguageDependence();
+        $this->assertEquals('4', $languageDependence->getLevel());
     }
 }

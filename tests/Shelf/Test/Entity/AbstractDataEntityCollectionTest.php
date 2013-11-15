@@ -182,6 +182,50 @@ class AbstractDataEntityCollectionTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testGroupBy()
+    {
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'first child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'second child', 'type' => 'wargame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'third child', 'type' => 'boardgame', 'fun' => false)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'fourth child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+
+        $groups = $this->entity->groupBy('type');
+        $boardgames = $groups['boardgame'];
+        $wargames = $groups['wargame'];
+
+        $this->assertEquals(
+            array(
+                'first child',
+                'third child',
+                'fourth child',
+            ),
+            $boardgames->getName()
+        );
+
+        $this->assertEquals(
+            array(
+                'second child',
+            ),
+            $wargames->getName()
+        );
+    }
+
     public function testGetNamesMagicMethod()
     {
         $this->entity->add(
@@ -274,6 +318,50 @@ class AbstractDataEntityCollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             'third child',
             $this->entity->findByType('Boardgame', true)->getName()
+        );
+    }
+
+    public function testGroupByTypeMagicMethod()
+    {
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'first child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'second child', 'type' => 'wargame', 'fun' => true)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'third child', 'type' => 'boardgame', 'fun' => false)
+            )
+        );
+        $this->entity->add(
+            Boardgame::factory(
+                array('name' => 'fourth child', 'type' => 'boardgame', 'fun' => true)
+            )
+        );
+
+        $groups = $this->entity->groupByType();
+        $boardgames = $groups['boardgame'];
+        $wargames = $groups['wargame'];
+
+        $this->assertEquals(
+            array(
+                'first child',
+                'third child',
+                'fourth child',
+            ),
+            $boardgames->getName()
+        );
+
+        $this->assertEquals(
+            array(
+                'second child',
+            ),
+            $wargames->getName()
         );
     }
 

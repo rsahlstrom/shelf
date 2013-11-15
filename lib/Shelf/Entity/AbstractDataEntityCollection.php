@@ -129,8 +129,30 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
     }
 
     /**
-     * Magic method to handle unknown method calls. Currently supports get* and
-     * filterBy*
+     * Groups a collection by a specified field
+     *
+     * @param string $field
+     *
+     * @return array
+     */
+    public function groupBy($field)
+    {
+        $getter = $this->getFunctionName('get_' . $field);
+        $groups = array();
+        foreach ($this as $child) {
+            $key = $child->$getter();
+            if (!array_key_exists($key, $groups)) {
+                $groups[$key] = new static();
+            }
+            $group =& $groups[$key];
+            $group->add($child);
+        }
+        return $groups;
+    }
+
+    /**
+     * Magic method to handle unknown method calls. Currently supports get*,
+     * filterBy*, findBy*, and GroupBy*
      *
      * @param string $method
      * @param array $args
@@ -161,6 +183,9 @@ abstract class AbstractDataEntityCollection extends AbstractEntity implements
                 array($findKey => $args[0]),
                 $caseSensitive
             );
+        } elseif (strpos($method, 'groupBy') === 0) {
+            $groupKey = preg_replace('/^groupBy/i', '', $method);
+            return $this->groupBy($groupKey);
         }
 
         throw new BadMethodCallException('Unrecognized method "'.$method.'()"');

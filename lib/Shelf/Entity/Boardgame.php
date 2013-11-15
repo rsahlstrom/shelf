@@ -388,7 +388,7 @@ class Boardgame extends AbstractDataEntity
     /**
      * Returns the SuggestedNumPlayers Poll
      *
-     * @return Poll
+     * @return SuggestedNumPlayersPoll
      */
     public function getSuggestedNumPlayersPoll()
     {
@@ -396,9 +396,19 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns the suggested num players option with the highest vote
+     *
+     * @return Option
+     */
+    public function getSuggestedNumPlayers()
+    {
+        return $this->getSuggestedNumPlayersPoll()->getWinningOptions()->first();
+    }
+
+    /**
      * Returns the SuggestedPlayerAge Poll
      *
-     * @return Poll
+     * @return SuggestedPlayerAgePoll
      */
     public function getSuggestedPlayerAgePoll()
     {
@@ -406,13 +416,33 @@ class Boardgame extends AbstractDataEntity
     }
 
     /**
+     * Returns the suggested player option with the highest vote
+     *
+     * @return Option
+     */
+    public function getSuggestedPlayerAge()
+    {
+        return $this->getSuggestedPlayerAgePoll()->getWinningOptions()->first();
+    }
+
+    /**
      * Returns the LanguageDependence Poll
      *
-     * @return Poll
+     * @return LanguageDependencePoll
      */
     public function getLanguageDependencePoll()
     {
         return $this->getPolls()->getLanguageDependencePoll();
+    }
+
+    /**
+     * Returns the language dependence option with the highest vote
+     *
+     * @return Option
+     */
+    public function getLanguageDependence()
+    {
+        return $this->getLanguageDependencePoll()->getWinningOptions()->first();
     }
 
     /**
