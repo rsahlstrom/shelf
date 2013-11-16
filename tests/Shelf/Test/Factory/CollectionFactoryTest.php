@@ -43,6 +43,7 @@ class CollectionFactoryTest extends \PHPUnit_Framework_TestCase
             'coll_id' => 3736695,
             'name' => array(
                 'value' => '& Cetera',
+                'type' => 'primary',
                 'sort_index' => 1,
             ),
             'year_published' => 2003,
@@ -77,6 +78,7 @@ class CollectionFactoryTest extends \PHPUnit_Framework_TestCase
             'coll_id' => 3119312,
             'name' => array(
                 'value' => '10 Days in Europe',
+                'type' => 'primary',
                 'sort_index' => 1,
             ),
             'year_published' => 2003,
@@ -113,6 +115,7 @@ I\'ve played this several times after with different people and it\'s usually a 
             'coll_id' => 11694686,
             'name' => array(
                 'value' => 'Alien Frontiers',
+                'type' => 'primary',
                 'sort_index' => 1,
             ),
             'year_published' => 2010,
@@ -147,6 +150,7 @@ I\'ve played this several times after with different people and it\'s usually a 
             'coll_id' => 3736695,
             'name' => array(
                 'value' => '& Cetera',
+                'type' => 'primary',
                 'sort_index' => 1,
             ),
             'year_published' => null,

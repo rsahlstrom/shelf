@@ -5,6 +5,7 @@
     "description": "Read only API to pull down information from boardgamegeek.com",
     "includes": [
         "partials/collection.json",
+        "partials/search.json",
         "partials/thing.json"
     ]
 }

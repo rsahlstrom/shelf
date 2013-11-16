@@ -1,6 +1,6 @@
 <?php
 
-namespace Shelf\Entity\Boardgame;
+namespace Shelf\Entity\Search;
 
 use Shelf\Entity\AbstractName;
 

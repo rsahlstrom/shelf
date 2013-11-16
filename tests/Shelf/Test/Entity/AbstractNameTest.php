@@ -4,6 +4,34 @@ namespace Shelf\Test\Entity;
 
 class AbstractNameTest extends \PHPUnit_Framework_TestCase
 {
+    public function testIsPrimary()
+    {
+        $primaryName = $this->getMockForAbstractClass(
+            'Shelf\Entity\AbstractName',
+            array(
+                array(
+                    'value' => 'Roads and Boats',
+                    'type' => 'primary',
+                    'sort_index' => 1,
+                )
+            )
+        );
+
+        $alternateName = $this->getMockForAbstractClass(
+            'Shelf\Entity\AbstractName',
+            array(
+                array(
+                    'value' => 'Roads and Boats',
+                    'type' => 'alternate',
+                    'sort_index' => 1,
+                )
+            )
+        );
+
+        $this->assertTrue($primaryName->isPrimary());
+        $this->assertFalse($alternateName->isPrimary());
+    }
+
     public function testGetSortIndex()
     {
         $name = $this->getMockForAbstractClass(
