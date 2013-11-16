@@ -1,0 +1,51 @@
+{
+    "name": "Board Game Geek XML API - Search",
+    "operations": {
+        "search": {
+            "httpMethod": "GET",
+            "uri": "search",
+            "summary": "Performs a search",
+            "responseClass": "Shelf\\Response\\Search",
+            "parameters": {
+                "query": {
+                    "location": "query",
+                    "description": "Returns all types of Items that match SEARCH_QUERY. Spaces in the SEARCH_QUERY are replaced by a +",
+                    "required": true,
+                    "type": ["string", "array"],
+                    "items": {
+                        "type": "string"
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "type": {
+                    "location": "query",
+                    "description": "Return all items that match SEARCH_QUERY of type TYPE. TYPE might be rpgitem, videogame, boardgame, or boardgameexpansion. You can return multiple types by listing them separated by commas, e.g. type=TYPE1,TYPE2,TYPE3",
+                    "type": ["string", "array"],
+                    "enum": [
+                        "boardgame",
+                        "boardgameexpansion",
+                        "videogame",
+                        "rpgitem",
+                        "rpgissue"
+                    ],
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "boardgame",
+                            "boardgameexpansion",
+                            "videogame",
+                            "rpgitem",
+                            "rpgissue"
+                        ]
+                    },
+                    "filters": "Shelf\\Filter\\CommaDelimited::implode"
+                },
+                "exact": {
+                    "location": "query",
+                    "description": "Limit results to items that match the SEARCH_QUERY exactly",
+                    "type": "boolean"
+                },
+            }
+        },
+    }
+}

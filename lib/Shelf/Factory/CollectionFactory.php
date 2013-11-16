@@ -41,6 +41,7 @@ class CollectionFactory extends AbstractFactory implements FactoryInterface
             'coll_id' => (int) $xmlItem['collid'],
             'name' => array(
                 'value' => (string) $xmlItem->name,
+                'type' => 'primary',
                 'sort_index' => (int) $xmlItem->name['sortindex'],
             ),
             'year_published' => null,

@@ -2,24 +2,22 @@
 
 namespace Shelf\Test\Entity;
 
-use Shelf\Factory\CollectionFactory;
+use Shelf\Factory\SearchFactory;
 
-class CollectionTest extends \PHPUnit_Framework_TestCase
+class SearchTest extends \PHPUnit_Framework_TestCase
 {
-    public static $collection;
-
     public function testGetName()
     {
-        $collection = CollectionFactory::fromArray(array(
+        $search = SearchFactory::fromArray(array(
             'name' => array(
                 'value' => 'Roads and Boats',
                 'sort_index' => 1,
             )
         ));
-        $name = $collection->getName();
+        $name = $search->getName();
 
         $this->assertInstanceOf(
-            'Shelf\\Entity\\Collection\\Name',
+            'Shelf\\Entity\\Search\\Name',
             $name
         );
 

@@ -10,6 +10,16 @@ use Shelf\Entity\AbstractDataEntity;
 abstract class AbstractName extends AbstractDataEntity
 {
     /**
+     * Returns true if the name is considered to be the primary name
+     *
+     * @return boolean
+     */
+    public function isPrimary()
+    {
+        return $this->getType() == 'primary';
+    }
+
+    /**
      * Returns the sort index with an option to make it zero based
      *
      * @param boolean $zeroBased OPTIONAL
