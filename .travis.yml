@@ -5,3 +5,7 @@ php:
   - "5.3"
 
 before_script: composer install
+
+branches:
+  only:
+   - master
