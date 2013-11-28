@@ -63,6 +63,12 @@ abstract class AbstractDataEntity extends AbstractEntity implements \Serializabl
         foreach ($keys as $key) {
             $getFunction = $this->getFunctionName('get_' . $key);
             $data[$key] = $this->$getFunction();
+            if ($data[$key] instanceof AbstractDataEntity
+                || $data[$key] instanceof AbstractDataEntityCollection
+            ) {
+                $value = $data[$key];
+                $data[$key] = $value->toArray();
+            }
         }
         return $data;
     }
@@ -72,10 +78,22 @@ abstract class AbstractDataEntity extends AbstractEntity implements \Serializabl
      */
     public function toPublicArray()
     {
-        $data = $this->toArray();
+        // We don't go through toArray so we can turn objects into public arrays
+        // as needed
+        $keys = array_keys($this->data);
         $privateKeys = $this->getPrivateKeys();
-        foreach ($privateKeys as $privateKey) {
-            unset($data[$privateKey]);
+        $publicKeys = array_diff($keys, $privateKeys);
+
+        $data = array();
+        foreach ($publicKeys as $key) {
+            $getFunction = $this->getFunctionName('get_' . $key);
+            $data[$key] = $this->$getFunction();
+            if ($data[$key] instanceof AbstractDataEntity
+                || $data[$key] instanceof AbstractDataEntityCollection
+            ) {
+                $value = $data[$key];
+                $data[$key] = $value->toPublicArray();
+            }
         }
         return $data;
     }
