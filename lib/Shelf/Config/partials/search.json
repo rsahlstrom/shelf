@@ -44,8 +44,8 @@
                     "location": "query",
                     "description": "Limit results to items that match the SEARCH_QUERY exactly",
                     "type": "boolean"
-                },
+                }
             }
-        },
+        }
     }
 }
