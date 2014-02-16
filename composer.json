@@ -12,7 +12,10 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Shelf\\": "lib/" }
+        "psr-4": {
+            "Shelf\\": "lib/",
+            "Shelf\\Test\\": "tests/"
+        }
     },
     "require": {
         "php": ">=5.3.3",
