@@ -55,6 +55,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
             'last_modified' => new \DateTime('2006-08-23 19:05:18'),
             'num_plays' => 0,
             'comment' => null,
+            'stats' => null
         );
 
         $this->assertEquals($expectedArray, $collection->toArray());

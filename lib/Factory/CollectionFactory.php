@@ -59,6 +59,7 @@ class CollectionFactory extends AbstractFactory implements FactoryInterface
             'last_modified' => new \DateTime((string) $xmlItem->status['lastmodified']),
             'num_plays' => null,
             'comment' => null,
+            'stats' => null,
         );
 
         if ($xmlItem->image) {
@@ -74,6 +75,52 @@ class CollectionFactory extends AbstractFactory implements FactoryInterface
 
         if ($xmlItem->comment) {
             $arrayItem['comment'] = (string) $xmlItem->comment;
+        }
+
+        if ($xmlItem->stats) {
+            $stats = $xmlItem->stats;
+
+            $arrayItem['stats'] = array(
+                'min_players' => (int) $stats['minplayers'],
+                'max_players' => (int) $stats['maxplayers'],
+                'playing_time' => (int) $stats['playingtime'],
+                'num_owned' => (int) $stats['numowned'],
+                'rating' => null,
+                'ranks' => null,
+            );
+
+            $rating = $stats->rating;
+            $personalRating = (float) $rating['value'];
+            if ($personalRating == 0) {
+                $personalRating = null;
+            }
+
+            $arrayItem['stats']['rating'] = array(
+                'personal' => $personalRating,
+                'users_rated' => (int) $rating->usersrated['value'],
+                'average' => (float) $rating->average['value'],
+                'bayes_average' => (float) $rating->bayesaverage['value'],
+                'std_dev' => (float) $rating->stddev['value'],
+                'median' => (float) $rating->median['value'],
+            );
+
+            $ranks = array();
+            foreach ($rating->ranks->rank as $rank) {
+                $value = (int) $rank['value'];
+                if ($value === 0) {
+                    $value = null;
+                }
+
+                $ranks[] = array(
+                    'type' => (string) $rank['type'],
+                    'id' => (int) $rank['id'],
+                    'name' => (string) $rank['name'],
+                    'friendly_name' => (string) $rank['friendlyname'],
+                    'value' => $value,
+                    'bayes_average' => (float) $rank['bayesaverage'],
+                );
+            }
+            $arrayItem['stats']['ranks'] = $ranks;
         }
 
         return $arrayItem;
