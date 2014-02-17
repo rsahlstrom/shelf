@@ -28,7 +28,7 @@ module.exports = function (grunt) {
             ]
         },
         phpcs: {
-            src: {
+            lib: {
                 dir: '<%= directories.lib %>'
             },
             options: {

@@ -3,6 +3,7 @@
 namespace Shelf\Entity;
 
 use Shelf\Entity\Collection\Name;
+use Shelf\Entity\Collection\Stats;
 use Shelf\Factory\CollectionFactory;
 
 /**
@@ -19,6 +20,13 @@ class Collection extends AbstractDataEntity
     protected $nameEntity = null;
 
     /**
+     * Entity to represent the stats of a collection
+     *
+     * @var Stats
+     */
+    protected $statsEntity = null;
+
+    /**
      * Returns a name entity
      *
      * @return Name
@@ -30,6 +38,24 @@ class Collection extends AbstractDataEntity
         }
 
         return $this->nameEntity;
+    }
+
+    /**
+     * Returns a stats entity
+     *
+     * @return Stats
+     */
+    public function getStats()
+    {
+        if (!$this->hasStats()) {
+            return null;
+        }
+
+        if ($this->statsEntity === null) {
+            $this->statsEntity = Stats::factory(parent::getStats());
+        }
+
+        return $this->statsEntity;
     }
 
     /**
